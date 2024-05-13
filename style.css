@@ -1,0 +1,24 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-inicial {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    background-color: red;
+    height: 60px;
+}
+
+.navbar-inicial img{
+    margin-top: 20px;
+}
+
+.links-navbar {
+    text-decoration: none;
+    color: black;
+    align-items: center;
+    margin-left: 200px;
+}
