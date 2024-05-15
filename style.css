@@ -1,4 +1,4 @@
-* {
+body {
     margin: 0;
     padding: 0;
     font-family: "Inter", sans-serif;
@@ -146,3 +146,149 @@
     width: 100%;
     
 }
+
+.button-site{
+    text-decoration: none;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    height: 40px;
+    background-color: black;
+    border-radius: 3px;
+    border: 1px solid #424242;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-top: 30px;
+}
+
+.button-site:hover{
+    background-color: rgb(255, 255, 255);
+    transition: 0.4s;
+    border: 1px solid #424242;
+    color: #000000;
+}
+
+.section-why{
+    padding-top: 160px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.section-why h1{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.first-section-why{
+    padding-top: 60px;
+    display: flex;
+}
+
+.agents-and-guns{
+    width: 470px;
+    margin: 40px;
+    text-align: center;
+}
+
+.agents-and-guns img{
+    margin-right: 10px;
+}
+
+.agents-and-guns p{
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    font-size: 28px;
+    padding-bottom: 20px;
+}
+
+.second-section-why{
+    padding-top: 50px;
+}
+
+.text-why{
+    color: #828282;
+}
+
+.section-japan{
+    padding-top: 100px;
+}
+
+.button-japan{
+    position: relative;
+    bottom: 100px;
+    left: 75%;
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 250px;
+    height: 40px;
+    background-color: black;
+    border-radius: 3px;
+    border: 1px solid #424242;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
+.button-japan:hover{
+    background-color: rgb(255, 255, 255);
+    transition: 0.4s;
+    border: 1px solid #424242;
+    color: #000000;
+}
+
+.section-black{
+    display: flex;
+    justify-content: center;
+    padding-top: 100px;
+    background-color: #000;
+}
+
+.section-black img{
+    width: 300px;
+}
+
+.section-black-divs{
+    padding-top: 250px;
+    width: 300px;
+    text-align: center;
+    padding-right: 250px;
+    color: #fff;
+}
+
+.section-black-divs-text{
+    padding-top: 30px;
+}
+
+
+.section-black-divs button{
+    width: 180px;
+    margin-left: 50px;
+    background-color: rgb(255, 255, 255);
+    transition: 0.4s;
+    border: 1px solid #424242;
+    color: #000000;
+}
+
+.section-black-divs button:hover{
+    font-size: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 180px;
+    height: 40px;
+    background-color: black;
+    border-radius: 3px;
+    border: 1px solid #424242;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4s;
+}
+
