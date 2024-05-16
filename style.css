@@ -4,7 +4,11 @@ body {
     font-family: "Inter", sans-serif;
     font-weight: 500;
     background-color: #D8D2D2;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
 }
+
 
 .navbar-inicial {
     list-style: none;
@@ -145,8 +149,6 @@ body {
     display: flex;
     justify-content: center;
     margin-top: 120px;    
-    border-top: 4px solid #cf1111;
-    border-bottom: 4px solid #ca1313;
 }
 
 .video-parts video{
@@ -228,7 +230,9 @@ body {
 
 .section-japan{
     padding-top: 100px;
+    height: 450px;
 }
+
 
 .button-japan{
     position: relative;
@@ -431,7 +435,6 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    padding-top: 50px;
 }
 
 .section-map h1{
@@ -491,10 +494,43 @@ body {
 
 .elements-list-footer span{
     padding-left: 15px;
-    
 }
 
 .elements-list-footer a{
     padding-left: 15px;
+}
 
+.elements-list-footer-two{
+    padding-top: 10px;
+}
+
+.elements-list-footer-two a{
+    padding-left: 15px;
+}
+
+.elements-list-footer-icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 22px;
+}
+
+.elements-list-footer-icons a{
+    padding-left: 20px;
+}
+
+.youtube img{
+    height: 30px;
+}
+
+.instagram img{
+    height: 25px;
+}
+
+.github img{
+    height: 25px;
+}
+
+.links-footer{
+    text-decoration: none;
 }
