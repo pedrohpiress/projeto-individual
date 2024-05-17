@@ -10,7 +10,7 @@
 
     <!-- FIM API GOOGLE FONTS -->
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="cadastro.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
@@ -31,10 +31,21 @@
     </nav>
 
     <section class="section-login">
+
+        <div class="personagens">
+            <div class="jett">
+                <img src="./assets/jett.png" alt="">
+            </div>
+
+            <div class="skye">
+                <img src="./assets/skye.png" alt="">
+            </div>
+        </div>
+
         <div class="box-login">
 
             <div class="login-parts">
-                <h1>Faça login em nosso site!</h1>
+                <h1>Crie sua conta aqui!</h1>
                 <div class="section-nome">
                     <p>Nome:</p>
                     <input type="text">
@@ -50,19 +61,14 @@
                     <input type="password">
                 </div>
 
-                <button onclick="login()" class="button-site">Login</button>
+                <div class="section-senha">
+                    <p>Confirmar senha:</p>
+                    <input type="password">
+                </div>
 
-                <div class="change-register">Não tem uma conta ainda?  <a href="./cadastro.html">Cadastre-se</a> </div>
-            </div>
-        </div>
+                <button onclick="login()" class="button-site">Cadastrar</button>
 
-        <div class="personagens">
-            <div class="reyna">
-                <img src="./assets/reyna.png" alt="">
-            </div>
-
-            <div class="omen">
-                <img src="./assets/omen.png" alt="">
+                <div class="change-register">Já tem uma conta?  <a href="./login.html">Faça login</a> </div>
             </div>
         </div>
 
