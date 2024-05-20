@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- API GOOGLE FONTS -->
 
@@ -15,13 +16,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <nav class="navbar-inicial">
         <img src="./assets/logoval.png" alt="">
         <h1>ValLife</h1>
         <li class="lista-links">
             <a class="links-navbar" href="./index.html">Inicio</a>
+            <a class="links-navbar" href="">Sobre mim</a>
             <a class="links-navbar" href="">Quiz</a>
             <a class="links-navbar" href="">Armas</a>
             <a class="links-navbar" href="">Agentes</a>
@@ -39,12 +42,12 @@
                     <p>Nome:</p>
                     <input type="text">
                 </div>
-    
+
                 <div class="section-email">
                     <p>E-mail:</p>
                     <input type="email">
                 </div>
-    
+
                 <div class="section-senha">
                     <p>Senha:</p>
                     <input type="password">
@@ -52,7 +55,7 @@
 
                 <button onclick="login()" class="button-site">Login</button>
 
-                <div class="change-register">Não tem uma conta ainda?  <a href="./cadastro.html">Cadastre-se</a> </div>
+                <div class="change-register">Não tem uma conta ainda? <a onclick="change_register()" class="change">Cadastre-se</a> </div>
             </div>
         </div>
 
@@ -69,4 +72,26 @@
     </section>
 
 </body>
+
 </html>
+
+<script>
+
+var box = document.querySelector('.box-login');
+var botaoAnimar = document.querySelector('.change');
+var agentes = document.querySelector('.personagens');
+
+// Variável para acompanhar a posição atual
+var posicaoAtual = 0;
+
+botaoAnimar.addEventListener("click", () => {
+    posicaoAtual += 1050; 
+    box.style.transform = `translateX(${posicaoAtual}px)`;
+    agentes.style.transform = `translateX(${posicaoAtual}px)`;
+
+
+});
+
+
+
+</script>

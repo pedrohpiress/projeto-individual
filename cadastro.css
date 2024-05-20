@@ -60,7 +60,7 @@ body {
 }
 
 .lista-links{
-    padding-left: 40%;
+    padding-left: 30%;
     padding-top: 20px;
     width: auto;
     height: auto;
@@ -149,6 +149,12 @@ body {
     color: red;
     text-decoration: none;
     margin-left: 3px;
+    transition: 0.4s;
+}
+
+.change-register a:hover{
+    color: #424242;
+    transition: 0.4s;
 }
 
 .jett img{

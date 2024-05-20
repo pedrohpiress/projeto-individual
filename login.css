@@ -60,7 +60,7 @@ body {
 }
 
 .lista-links{
-    padding-left: 40%;
+    padding-left: 30%;
     padding-top: 20px;
     width: auto;
     height: auto;
@@ -108,6 +108,7 @@ body {
     width: 400px;
     height: 480px;
     padding-top: 40px;
+    transition: transform 1.5s ease-in-out;
 }
 
 .box-login p{
@@ -142,6 +143,13 @@ body {
     color: red;
     text-decoration: none;
     margin-left: 3px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+
+.change-register a:hover{
+    color: #424242;
+    transition: 0.4s;
 }
 
 .reyna img{
@@ -159,6 +167,7 @@ body {
 
 .personagens{
     display: flex;
+    transition: transform 1.7s ease-in-out;
 }
 
 .button-site{
@@ -184,4 +193,19 @@ body {
     transition: 0.4s;
     border: 1px solid #424242;
     color: #000000;
+}
+
+/* .box-login{
+    animation: moveToRight 2s ease-in-out;
+    animation-delay: 1000ms;
+} */
+
+@keyframes moveToRight {
+    0%{
+        transform: translateX(0px);
+    }
+
+    100%{
+        transform: translateX(1100px);
+    }
 }
