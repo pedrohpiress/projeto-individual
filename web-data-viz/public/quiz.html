@@ -30,21 +30,89 @@
         </li>
     </nav>
 
-    <section class="section-quiz">
+    <section class="section-quiz" id="section-quiz">
 
         <div class="global-quiz">
                 <p>Você realmente conhece o Valorant?</p> 
     
                 
-                    <button class="button-quiz">
+                    <button onclick="quiz()" class="button-quiz">
                         <p>Inicie agora!</p>
                         <div class="change-theme-button"></div>
                     </button>
     
                 <p>Preparamos um Quiz para você testar seu conhecimento sobre o jogo</p>
         </div>
+    </section>
+
+    <section class="quizes" id="quiz">
+
+        <div class="all-quiz">
+            <div class="all-quiz-text">
+                <p>Qual ano foi lançado o Valorant?</p>
+            </div>
+    
+            <div class="div_perguntas">
+                <button id="alt1">2020</button>
+                <button id="alt2">2021</button>
+                <br>
+                <button id="alt3">2019</button>
+                <button id="alt4">2017</button>
+            </div>
+    
+            <button class="next-question">Proxima pergunta</button>
+        </div>
 
     </section>
 
 </body>
 </html>
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function(){
+        var quizes = document.getElementById('quiz');
+        quizes.style.display = "none";
+
+        document.querySelector('.button-quiz').onclick = function(){
+            var sectionQuiz = document.getElementById('section-quiz');
+            quizes.style.display = "block";
+            sectionQuiz.style.display = 'none';
+        };
+
+        for (var cont = 1; cont <= 10; cont++){
+            var alt1 = document.getElementById('alt1');
+            var alt2 = document.getElementById('alt2');
+            var alt3 = document.getElementById('alt3');
+            var alt4 = document.getElementById('alt4');
+            // var buttons = document.querySelectorAll('.div_perguntas button')
+
+            if (cont == 2){
+                    alt1.onclick = function(){
+                        alt1.style.backgroundColor = "green";
+                        // buttons.classList.add('disabled');
+                        // buttons.disabled = true;
+                    }
+                    alt2.onclick = function(){
+                        alt2.style.backgroundColor = "black"
+                        alt2.style.color = "red"
+                    }
+                    alt3.onclick = function(){
+                        alt3.style.backgroundColor = "black"
+                        alt3.style.color = "red"
+                    }
+                    alt4.onclick = function(){
+                        alt4.style.backgroundColor = "black"
+                        alt4.style.color = "red"
+                    }
+            }
+
+            if (cont == 3){
+
+            }
+
+        }
+    });
+
+
+</script>
