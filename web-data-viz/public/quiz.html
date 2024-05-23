@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <!-- API GOOGLE FONTS -->
 
@@ -14,8 +15,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
-    
+
     <nav class="navbar-inicial">
         <img src="./assets/logoval.png" alt="">
         <h1>ValLife</h1>
@@ -30,89 +32,243 @@
         </li>
     </nav>
 
-    <section class="section-quiz" id="section-quiz">
+    <!-- <section class="section-quiz" id="section-quiz">
 
         <div class="global-quiz">
-                <p>Você realmente conhece o Valorant?</p> 
-    
-                
-                    <button onclick="quiz()" class="button-quiz">
-                        <p>Inicie agora!</p>
-                        <div class="change-theme-button"></div>
-                    </button>
-    
-                <p>Preparamos um Quiz para você testar seu conhecimento sobre o jogo</p>
+            <p>Você realmente conhece o Valorant?</p>
+
+
+            <button onclick="quiz()" class="button-quiz start-quiz">
+                <p>Inicie agora!</p>
+                <div class="change-theme-button"></div>
+            </button>
+
+            <p>Preparamos um Quiz para você testar seu conhecimento sobre o jogo</p>
         </div>
-    </section>
+    </section> -->
 
-    <section class="quizes" id="quiz">
+    <div class="container">
+        <div class="questions-container hide">
+            <span class="question">Pergunta aqui?</span>
+            <div class="answers-container">
+                <button class="answer button">Resposta 1</button>
+                <button class="answer button">Resposta 2</button>
+                <br>
+                <button class="answer button">Resposta 3</button>
+                <button class="answer button">Resposta 4</button>
+            </div>
+        </div>
+        <div class="controls-container">
+            <button class="start-quiz button">Começar Quiz!</button>
+            <button class="next-question button hide">Próxima pergunta</button>
+        </div>
+    </div>
 
-        <div class="all-quiz">
+    <!-- <section class="quizes" id="quiz">
+
+        <div id="quiz_one" class="all-quiz">
             <div class="all-quiz-text">
                 <p>Qual ano foi lançado o Valorant?</p>
             </div>
-    
+
             <div class="div_perguntas">
-                <button id="alt1">2020</button>
-                <button id="alt2">2021</button>
+                <button class="alt1">2020</button>
+                <button class="alt2">2021</button>
                 <br>
-                <button id="alt3">2019</button>
-                <button id="alt4">2017</button>
+                <button class="alt3">2019</button>
+                <button class="alt4">2017</button>
             </div>
-    
-            <button class="next-question">Proxima pergunta</button>
+
+            <button id="next_question_button" class="next-question">Proxima pergunta</button>
         </div>
 
-    </section>
+
+    </section> -->
 
 </body>
+
 </html>
 
 <script>
 
-    document.addEventListener('DOMContentLoaded', function(){
-        var quizes = document.getElementById('quiz');
-        quizes.style.display = "none";
+    // document.querySelector('.button-quiz').onclick = function () {
+    //     var sectionQuiz = document.getElementById('section-quiz');
+    //     var quizes = document.getElementsByClassName('container')
+    //     quizes.style.display = "block";
+    //     sectionQuiz.style.display = 'none';
+    // };
 
-        document.querySelector('.button-quiz').onclick = function(){
-            var sectionQuiz = document.getElementById('section-quiz');
-            quizes.style.display = "block";
-            sectionQuiz.style.display = 'none';
-        };
+    const $startGameButton = document.querySelector(".start-quiz")
+    const $nextQuestionButton = document.querySelector(".next-question")
+    const $questionsContainer = document.querySelector(".questions-container")
+    const $questionText = document.querySelector(".question")
+    const $answersContainer = document.querySelector(".answers-container")
+    const $answers = document.querySelectorAll(".answer")
 
-        for (var cont = 1; cont <= 10; cont++){
-            var alt1 = document.getElementById('alt1');
-            var alt2 = document.getElementById('alt2');
-            var alt3 = document.getElementById('alt3');
-            var alt4 = document.getElementById('alt4');
-            // var buttons = document.querySelectorAll('.div_perguntas button')
+    let currentQuestionIndex = 0
+    let totalCorrect = 0
 
-            if (cont == 2){
-                    alt1.onclick = function(){
-                        alt1.style.backgroundColor = "green";
-                        // buttons.classList.add('disabled');
-                        // buttons.disabled = true;
-                    }
-                    alt2.onclick = function(){
-                        alt2.style.backgroundColor = "black"
-                        alt2.style.color = "red"
-                    }
-                    alt3.onclick = function(){
-                        alt3.style.backgroundColor = "black"
-                        alt3.style.color = "red"
-                    }
-                    alt4.onclick = function(){
-                        alt4.style.backgroundColor = "black"
-                        alt4.style.color = "red"
-                    }
-            }
+    $startGameButton.addEventListener("click", startGame)
+    $nextQuestionButton.addEventListener("click", displayNextQuestion)
 
-            if (cont == 3){
+    function startGame() {
+        $startGameButton.classList.add("hide")
+        $questionsContainer.classList.remove("hide")
+        displayNextQuestion()
+    }
 
-            }
+    function displayNextQuestion() {
+        resetState()
 
+        if (questions.length === currentQuestionIndex) {
+            return finishGame()
         }
-    });
 
+        $questionText.textContent = questions[currentQuestionIndex].question
+        questions[currentQuestionIndex].answers.forEach(answer => {
+            const newAsnwer = document.createElement("button")
+            newAsnwer.classList.add("button", "answer")
+            newAsnwer.textContent = answer.text
+            if (answer.correct) {
+                newAsnwer.dataset.correct = answer.correct
+            }
+            $answersContainer.appendChild(newAsnwer)
+
+            newAsnwer.addEventListener("click", selectAnswer)
+        })
+    }
+
+    function resetState() {
+        while ($answersContainer.firstChild) {
+            $answersContainer.removeChild($answersContainer.firstChild)
+        }
+
+        document.body.removeAttribute("class")
+        $nextQuestionButton.classList.add("hide")
+    }
+
+    function selectAnswer(event) {
+        const answerClicked = event.target
+
+        if (answerClicked.dataset.correct) {
+            document.body.classList.add("correct")
+            totalCorrect++
+        } else {
+            document.body.classList.add("incorrect")
+        }
+
+        document.querySelectorAll(".answer").forEach(button => {
+            button.disabled = true
+
+            if (button.dataset.correct) {
+                button.classList.add("correct")
+            } else {
+                button.classList.add("incorrect")
+            }
+        })
+
+        $nextQuestionButton.classList.remove("hide")
+        currentQuestionIndex++
+    }
+
+    function finishGame() {
+        const totalQuestions = questions.length
+        const performance = Math.floor(totalCorrect * 100 / totalQuestions)
+
+        let message = ""
+
+        switch (true) {
+            case (performance >= 90):
+                message = "Excelente :)"
+                break
+            case (performance >= 70):
+                message = "Muito bom :)"
+                break
+            case (performance >= 50):
+                message = "Bom"
+                break
+            default:
+                message = "Pode melhorar :("
+        }
+
+        $questionsContainer.innerHTML =
+            `
+    <p class="final-message">
+      Você acertou ${totalCorrect} de ${totalQuestions} questões!
+      <span>Resultado: ${message}</span>
+    </p>
+    <button 
+      onclick=window.location.reload() 
+      class="button"
+    >
+      Refazer teste
+    </button>
+  `
+    }
+
+
+    const questions = [
+        {
+            question: "Dentro de qual elemento HTML colocamos o JavaScript?",
+            answers: [
+                { text: "<javascript>", correct: false },
+                { text: "<js>", correct: false },
+                { text: "<script>", correct: true },
+                { text: "<scripting>", correct: false }
+            ]
+        },
+        {
+            question: "Onde é o lugar correto para inserir JavaScript?",
+            answers: [
+                { text: "Tanto no <head> quanto no <body> está correto", correct: true },
+                { text: "No <body>", correct: false },
+                { text: "No <head>", correct: false },
+                { text: "Em outro lugar", correct: false }
+            ]
+        },
+        {
+            question: 'Qual é a sintaxe correta para se referir a um script externo chamado "xxx.js"',
+            answers: [
+                { text: '<script src="xxx.js">', correct: true },
+                { text: '<script href="xxx.js">', correct: false },
+                { text: '<script name="xxx.js">', correct: false },
+                { text: "Nenhuma das alternativas", correct: false }
+            ]
+        },
+        {
+            question: 'O arquivo JavaScript externo deve conter a tag <script>',
+            answers: [
+                { text: "Verdadeiro", correct: false },
+                { text: "Falso", correct: true }
+            ]
+        },
+        {
+            question: 'Como escrever "Hello World" numa caixa de alerta?',
+            answers: [
+                { text: 'msg("Hello World");', correct: false },
+                { text: 'alert("Hello World");', correct: true },
+                { text: 'msgBox("Hello World");', correct: false },
+                { text: 'alertBox("Hello World");', correct: false }
+            ]
+        },
+        {
+            question: 'Como podemos criar uma função no JavaScript?',
+            answers: [
+                { text: 'function:myFunction()', correct: false },
+                { text: 'function myFunction()', correct: true },
+                { text: 'function = myFunction()', correct: false },
+                { text: 'Nenhum desses códigos criaria uma função', correct: false }
+            ]
+        },
+        {
+            question: 'Como podemos chamar uma função chamada "minhaFuncao"?',
+            answers: [
+                { text: 'call minhaFuncao()', correct: false },
+                { text: 'call function minhaFuncao()', correct: false },
+                { text: 'Nenhum desses códigos chamaria essa função', correct: false },
+                { text: 'minhaFuncao()', correct: true },
+            ]
+        },
+    ]
 
 </script>
