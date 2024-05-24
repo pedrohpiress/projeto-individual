@@ -162,10 +162,7 @@ body {
     border: 2px solid whitesmoke;
 }
 
-.button-quiz:hover .change-theme-button{
-    animation: change 0.5s;
-    animation-fill-mode: forwards;
-}
+
 
 .quizes{
     display: flex;
@@ -225,7 +222,32 @@ body {
     border: 1px solid whitesmoke;
     box-shadow: 0px 0px 30px #d12020;
 } */
+
+.button-quiz p{
+    background-color: none;
+    position: absolute;
+    font-size: 36px;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.button-quiz .start-quiz button{
+    width: 2000px;
+}
+
+.button-quiz:hover .change-theme-button{
+    animation: change 0.5s;
+    animation-fill-mode: forwards;
+}
   
+.change-theme-button{
+    background-image: url(../assets/banner-button-quiz.png);
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    border: 2px solid whitesmoke;
+}
+
   .container {
     display: flex;
     flex-direction: column;
@@ -281,6 +303,10 @@ body {
     border: 1px solid white;
     border-radius: 3px;
     transition: 0.4s;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
   }
 
   .button:hover{
@@ -310,4 +336,17 @@ body {
   
   .incorrect {
     background-color: #a10101;
+  }
+
+  #button-changer{
+    width: 400px;
+    height: 100px;
+    margin-left: 40px;
+    margin: 40px;
+  }
+
+  #button-changer:hover{
+    transition: 0.5s;
+    border: 1px solid whitesmoke;
+    box-shadow: 0px 0px 30px #d12020;
   }

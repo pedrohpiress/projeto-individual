@@ -59,7 +59,16 @@
             </div>
         </div>
         <div class="controls-container">
-            <button class="start-quiz button">Começar Quiz!</button>
+
+            <h2 class="text_begin_one">Você realmente conhece o Valorant?</h2>
+
+            <button id="button-changer" class="start-quiz button button-quiz">
+                <p>Inicie agora!</p>
+                <div class="change-theme-button"></div>
+            </button>
+
+            <h2 class="text_begin_two">Teste seu conhecimento com o nosso quiz!</h2>
+
             <button class="next-question button hide">Próxima pergunta</button>
         </div>
     </div>
@@ -91,19 +100,14 @@
 
 <script>
 
-    // document.querySelector('.button-quiz').onclick = function () {
-    //     var sectionQuiz = document.getElementById('section-quiz');
-    //     var quizes = document.getElementsByClassName('container')
-    //     quizes.style.display = "block";
-    //     sectionQuiz.style.display = 'none';
-    // };
-
     const $startGameButton = document.querySelector(".start-quiz")
     const $nextQuestionButton = document.querySelector(".next-question")
     const $questionsContainer = document.querySelector(".questions-container")
     const $questionText = document.querySelector(".question")
     const $answersContainer = document.querySelector(".answers-container")
     const $answers = document.querySelectorAll(".answer")
+    const text_begin_one = document.querySelector('.text_begin_one')
+    const text_begin_two = document.querySelector('.text_begin_two')
 
     let currentQuestionIndex = 0
     let totalCorrect = 0
@@ -113,6 +117,8 @@
 
     function startGame() {
         $startGameButton.classList.add("hide")
+        text_begin_one.classList.add("hide")
+        text_begin_two.classList.add("hide")
         $questionsContainer.classList.remove("hide")
         displayNextQuestion()
     }
@@ -178,17 +184,32 @@
         let message = ""
 
         switch (true) {
+            case (performance >= 100):
+                message = "Você conhece o jogo como um radiante!"
+                break
             case (performance >= 90):
-                message = "Excelente :)"
+                message = "Você conhece o jogo como um imortal!"
                 break
-            case (performance >= 70):
-                message = "Muito bom :)"
+            case (performance >= 80):
+                message = "Você conhece o jogo como um ascendente!"
                 break
-            case (performance >= 50):
-                message = "Bom"
+            case (performance >= 60):
+                message = "Você conhece o jogo como um diamante!"
+                break
+            case (performance >= 40):
+                message = "Você conhece o jogo como um platina!"
+                break
+            case (performance >= 30):
+                message = "Você conhece o jogo como um ouro, Pode melhorar :("
+                break
+            case (performance >= 20):
+                message = "Você conhece o jogo como um prata, Pode melhorar :("
+                break
+            case (performance >= 10):
+                message = "Você conhece o jogo como um bronze, Pode melhorar :("
                 break
             default:
-                message = "Pode melhorar :("
+                message = "Você conhece o jogo como um ferro, Pode melhorar :("
         }
 
         $questionsContainer.innerHTML =
@@ -209,64 +230,93 @@
 
     const questions = [
         {
-            question: "Dentro de qual elemento HTML colocamos o JavaScript?",
+            question: "Qual a bang (flash) mais forte do Valorant?",
             answers: [
-                { text: "<javascript>", correct: false },
-                { text: "<js>", correct: false },
-                { text: "<script>", correct: true },
-                { text: "<scripting>", correct: false }
+                { text: "Bola Curva (Phoenix)", correct: false },
+                { text: "Olhar voraz (Reyna)", correct: false },
+                { text: "Falcatrua (Yoru)", correct: true },
+                { text: "Estopim (Breach)", correct: false }
             ]
         },
         {
-            question: "Onde é o lugar correto para inserir JavaScript?",
+            question: "Qual destes agentes não é um duelista?",
             answers: [
-                { text: "Tanto no <head> quanto no <body> está correto", correct: true },
-                { text: "No <body>", correct: false },
-                { text: "No <head>", correct: false },
-                { text: "Em outro lugar", correct: false }
+                { text: "Omen", correct: true },
+                { text: "Iso", correct: false },
+                { text: "Jett", correct: false },
+                { text: "Raze", correct: false }
             ]
         },
         {
-            question: 'Qual é a sintaxe correta para se referir a um script externo chamado "xxx.js"',
+            question: 'Qual ano o Valorant foi lançado?',
             answers: [
-                { text: '<script src="xxx.js">', correct: true },
-                { text: '<script href="xxx.js">', correct: false },
-                { text: '<script name="xxx.js">', correct: false },
+                { text: '2017', correct: false },
+                { text: '2021', correct: false },
+                { text: '2020', correct: true },
                 { text: "Nenhuma das alternativas", correct: false }
             ]
         },
         {
-            question: 'O arquivo JavaScript externo deve conter a tag <script>',
+            question: 'Qual dessas funções não é de um agente de Valorant?',
             answers: [
-                { text: "Verdadeiro", correct: false },
-                { text: "Falso", correct: true }
+                { text: "Sentinela", correct: false },
+                { text: "Controlador", correct: false },
+                { text: "Iniciador", correct: false },
+                { text: "Encomendador", correct: true }
             ]
         },
         {
-            question: 'Como escrever "Hello World" numa caixa de alerta?',
+            question: 'Qual é a empresa desenvolvedora do jogo Valorant?',
             answers: [
-                { text: 'msg("Hello World");', correct: false },
-                { text: 'alert("Hello World");', correct: true },
-                { text: 'msgBox("Hello World");', correct: false },
-                { text: 'alertBox("Hello World");', correct: false }
+                { text: 'Blizzard Entertainment', correct: false },
+                { text: 'Riot Games', correct: true },
+                { text: 'Epic Games', correct: false },
+                { text: 'Ubisoft', correct: false }
             ]
         },
         {
-            question: 'Como podemos criar uma função no JavaScript?',
+            question: 'Qual é o nome da ultimate do agente Sova?',
             answers: [
-                { text: 'function:myFunction()', correct: false },
-                { text: 'function myFunction()', correct: true },
-                { text: 'function = myFunction()', correct: false },
-                { text: 'Nenhum desses códigos criaria uma função', correct: false }
+                { text: 'Choque Elétrico', correct: false },
+                { text: 'Fúria do Caçador', correct: true },
+                { text: 'Olho do Falcão', correct: false },
+                { text: 'Flecha Rastreadora', correct: false }
             ]
         },
         {
-            question: 'Como podemos chamar uma função chamada "minhaFuncao"?',
+            question: 'Quantas rodadas são necessárias para vencer uma partida competitiva em Valorant?',
             answers: [
-                { text: 'call minhaFuncao()', correct: false },
-                { text: 'call function minhaFuncao()', correct: false },
-                { text: 'Nenhum desses códigos chamaria essa função', correct: false },
-                { text: 'minhaFuncao()', correct: true },
+                { text: '10 rodadas', correct: false },
+                { text: '12 rodadas', correct: false },
+                { text: '15 rodadas', correct: false },
+                { text: '13 rodadas', correct: true },
+            ]
+        },
+        {
+            question: 'Qual agente tem a habilidade de criar paredes de gelo?',
+            answers: [
+                { text: 'Viper', correct: false },
+                { text: 'Jett', correct: false },
+                { text: 'Sage', correct: true },
+                { text: 'Reyna', correct: false },
+            ]
+        },
+        {
+            question: 'Qual desses mapas NÃO é um mapa de Valorant?',
+            answers: [
+                { text: 'Haven', correct: false },
+                { text: 'Mirage', correct: true },
+                { text: 'Bind', correct: false },
+                { text: 'Split', correct: false },
+            ]
+        },
+        {
+            question: 'Qual agente possui a habilidade de invocar uma cortina de fumaça que atravessa paredes?',
+            answers: [
+                { text: 'Viper', correct: true },
+                { text: 'Brimstone', correct: false },
+                { text: 'Omen', correct: false },
+                { text: 'Astra', correct: false },
             ]
         },
     ]
