@@ -8,9 +8,9 @@ function listar() {
     return database.executar(instrucao);
 }
 
-function cadastrar(nome) {
+function cadastrar(totalCorrect) {
     var instrucao = `
-        INSERT INTO quiz (acertos) VALUES ('${nome}');
+        INSERT INTO quiz (acertos) VALUES ('${totalCorrect}');
     `;
     console.log("Executando a instrução SQL: \n" + instrucao);
     return database.executar(instrucao);

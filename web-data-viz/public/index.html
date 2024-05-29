@@ -16,19 +16,21 @@
     <title>Document</title>
 </head>
 
-<body>
+<body onload="validarSessao()">
 
     <nav class="navbar-inicial">
         <img src="./assets/logoval.png" alt="">
         <h1>ValLife</h1>
         <li class="lista-links">
             <a class="links-navbar" href="./index.html">Inicio</a>
-            <a class="links-navbar" href="">Sobre mim</a>
-            <a class="links-navbar" href="">Quiz</a>
-            <a class="links-navbar" href="">Armas</a>
-            <a class="links-navbar" href="">Agentes</a>
-            <a class="links-navbar" href="">Mapas</a>
-            <button class="login-navbar" href="./login.html" onclick="location.href='./login.html'">Login</button>
+            <a class="links-navbar" href="./sobremim.html">Sobre mim</a>
+            <a id="a_link_dash" class="links-navbar" href="./quiz.html">Quiz</a>
+            <a id="a_link_quiz" class="links-navbar" href="./dashboard.html">Dashboard</a>
+            <a class="links-navbar" href="./armas.html">Armas</a>
+            <a class="links-navbar" href="./agentes.html">Agentes</a>
+            <a class="links-navbar" href="./mapas.html">Mapas</a>
+            <button class="login-navbar" href="./login.html" id="b_usuario"
+                onclick="location.href='./login.html'">Login</button>
         </li>
     </nav>
 
@@ -102,98 +104,116 @@
         <img src="./assets/banner-japan.png" alt="" width="100%">
         <button class="button-japan">Confira</button>
     </div>
-        </section>
+    </section>
 
-        <section class="section-black">
-            <div class="section-black-divs">
-                <h1>Você realmente conhece o Valorant?</h1>
-                <div class="section-black-divs-text">Teste seu conhecimento sobre o jogo com o quiz abaixo</div>
-                <button class="button-site">Entre</button>
-            </div>
+    <section class="section-black">
+        <div class="section-black-divs">
+            <h1>Você realmente conhece o Valorant?</h1>
+            <div class="section-black-divs-text">Teste seu conhecimento sobre o jogo com o quiz abaixo</div>
+            <button class="button-site">Entre</button>
+        </div>
 
-            <div>
-                <img src="./assets/card-reyna.png" alt="">
-            </div>
-        </section>
+        <div>
+            <img src="./assets/card-reyna.png" alt="">
+        </div>
+    </section>
 
-        <section class="section-black-two">
-            <div>
-                <img src="./assets/card-sage-omen.png" alt="">
-            </div>
+    <section class="section-black-two">
+        <div>
+            <img src="./assets/card-sage-omen.png" alt="">
+        </div>
 
-            <div class="section-two-black-divs">
-                <h1>Faça login em nosso site</h1>
-                <div class="section-two-black-divs-text">Tenha uma conta para armazenar seus acertos com o quiz!</div>
-                <button class="button-site">Entre</button>
-            </div>
-        </section>
+        <div class="section-two-black-divs">
+            <h1>Faça login em nosso site</h1>
+            <div class="section-two-black-divs-text">Tenha uma conta para armazenar seus acertos com o quiz!</div>
+            <button class="button-site">Entre</button>
+        </div>
+    </section>
 
-        <section class="section-agents">
-            <div class="section-agents-texts">
-                <h1>Agentes</h1>
-                <p>Conheça sobre os agentes do Valorant</p>
-                <button class="button-site">Agentes</button>
-            </div>
+    <section class="section-agents">
+        <div class="section-agents-texts">
+            <h1>Agentes</h1>
+            <p>Conheça sobre os agentes do Valorant</p>
+            <button class="button-site">Agentes</button>
+        </div>
 
-            <div>
-                <img src="./assets/agentes.png" alt="">
-            </div>
-        </section>
+        <div>
+            <img src="./assets/agentes.png" alt="">
+        </div>
+    </section>
 
-        <section class="section-guns">
-            <div>
-                <img src="./assets/skins.png" alt="">
-            </div>
+    <section class="section-guns">
+        <div>
+            <img src="./assets/skins.png" alt="">
+        </div>
 
-            <div class="section-guns-texts">
-                <h1>Equipamentos</h1>
-                <p>Conheça sobre os armas
-                    e equipamentos</p>
-                <button class="button-site">Confira</button>
-            </div>
-        </section>
+        <div class="section-guns-texts">
+            <h1>Equipamentos</h1>
+            <p>Conheça sobre os armas
+                e equipamentos</p>
+            <button class="button-site">Confira</button>
+        </div>
+    </section>
 
-        <section class="section-map">
-            <div>
-                <h1>Mapas</h1>
-                <p>Confira os mapas jogáveis dentro do jogo</p>
-                <button class="button-site">Mapas</button>
-            </div>
-        </section>
+    <section class="section-map">
+        <div>
+            <h1>Mapas</h1>
+            <p>Confira os mapas jogáveis dentro do jogo</p>
+            <button class="button-site">Mapas</button>
+        </div>
+    </section>
 
-        <footer class="footer-page">
-            <div class="footer-text">
-                <p>ValLife - © Todos os direitos reservados.</p>
-            </div>
+    <footer class="footer-page">
+        <div class="footer-text">
+            <p>ValLife - © Todos os direitos reservados.</p>
+        </div>
 
-            <div class="footer-list">
-                <li class="elements-list-footer-icons">
-                    <a class="instagram" href=""><img src="./assets/instagram.png" alt=""></a>
-                    <a class="github" href=""><img src="./assets/github.png" alt=""></a>
-                    <a class="youtube" href=""><img src="./assets/youtube.png" alt=""></a>
-                </li>
+        <div class="footer-list">
+            <li class="elements-list-footer-icons">
+                <a class="instagram" href=""><img src="./assets/instagram.png" alt=""></a>
+                <a class="github" href=""><img src="./assets/github.png" alt=""></a>
+                <a class="youtube" href=""><img src="./assets/youtube.png" alt=""></a>
+            </li>
 
-                <p>Pedro H. Pires de Souza</p>
-            </div>
+            <p>Pedro H. Pires de Souza</p>
+        </div>
 
-            <div class="footer-list-two">
-                <li class="elements-list-footer">
-                    <span>
-                        <a class="links-footer"  href="">Inicio</a>
-                        <a class="links-footer" href="">Quiz</a>
-                        <a class="links-footer" href="">Armas</a>
-                        <br>
-                    </span>
-                </li>
-                <li class="elements-list-footer-two">
-                    <a class="links-footer" href="">Mapas</a>
-                    <a class="links-footer" href="">Agentes</a>
-                    <a class="links-footer" href="">Login</a>
-                </li>
+        <div class="footer-list-two">
+            <li class="elements-list-footer">
+                <span>
+                    <a class="links-footer" href="">Inicio</a>
+                    <a class="links-footer" href="">Quiz</a>
+                    <a class="links-footer" href="">Armas</a>
+                    <br>
+                </span>
+            </li>
+            <li class="elements-list-footer-two">
+                <a class="links-footer" href="">Mapas</a>
+                <a class="links-footer" href="">Agentes</a>
+                <a class="links-footer" href="">Login</a>
+            </li>
 
-            </div>
-        </footer>
+        </div>
+    </footer>
 
 </body>
 
 </html>
+
+<script src="./js/sessao.js"></script>
+<script>
+
+    var quizDash = document.getElementById("a_link_dash")
+    var dashQuiz = document.getElementById("a_link_quiz")
+    dashQuiz.style.display = "none"
+    quizDash.style.display = "none"
+
+    if (email != null && nome != null) {
+        quizDash.style.display = "none"
+        dashQuiz.style.display = "block"
+    } else {
+        quizDash.style.display = "block"
+        dashQuiz.style.display = "none"
+    }
+
+</script>

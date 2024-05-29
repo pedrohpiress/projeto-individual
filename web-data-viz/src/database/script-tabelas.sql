@@ -9,4 +9,8 @@ CREATE TABLE usuario (
 	senha VARCHAR(50)
 );
 
+CREATE TABLE quiz(
+idQuiz int primary key auto_increment,
+acertos int);
+
 select * from usuario;

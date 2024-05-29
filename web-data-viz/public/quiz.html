@@ -73,26 +73,8 @@
         </div>
     </div>
 
-    <!-- <section class="quizes" id="quiz">
 
-        <div id="quiz_one" class="all-quiz">
-            <div class="all-quiz-text">
-                <p>Qual ano foi lançado o Valorant?</p>
-            </div>
-
-            <div class="div_perguntas">
-                <button class="alt1">2020</button>
-                <button class="alt2">2021</button>
-                <br>
-                <button class="alt3">2019</button>
-                <button class="alt4">2017</button>
-            </div>
-
-            <button id="next_question_button" class="next-question">Proxima pergunta</button>
-        </div>
-
-
-    </section> -->
+    </section>
 
 </body>
 
@@ -176,24 +158,10 @@
     }
 
     async function submitQuiz() {
-    const data = {
-        acertos: totalCorrect
-    };
-
-    const response = await fetch('/api/submitQuiz', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(data)
-    });
-
-    if (response.ok) {
-        alert('Obrigado por participar do quiz!');
-    } else {
-        alert('Ocorreu um erro ao enviar os dados. Por favor, tente novamente.');
+        const data = {
+            acertos: totalCorrect
+        };
     }
-}
 
     function finishGame() {
         const totalQuestions = questions.length
@@ -242,9 +210,44 @@
     >
       Refazer teste
     </button>
+
+    <button 
+      onclick="irdashboard()"
+      class="button"
+    >
+      Ir para a dashboard
+    </button>
   `
 
         submitQuiz();
+    }
+
+    function irdashboard() {
+        fetch("/quiz/cadastrar", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+                // crie um atributo que recebe o valor recuperado aqui
+                // Agora vá para o arquivo routes/usuario.js
+                totalCorrectServer: totalCorrect
+            }),
+        })
+            .then(function (resposta) {
+                console.log("resposta: ", resposta);
+
+                if (resposta.ok) {
+                } else {
+                    throw "Houve um erro ao tentar realizar o cadastro!";
+                }
+            })
+            .catch(function (resposta) {
+                console.log(`#ERRO: ${resposta}`);
+                // finalizarAguardar();
+            });
+
+        return false;
     }
 
 
