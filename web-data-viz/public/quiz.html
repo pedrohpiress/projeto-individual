@@ -148,7 +148,7 @@
         while ($answersContainer.firstChild) {
             $answersContainer.removeChild($answersContainer.firstChild)
         }
-        
+
         document.body.removeAttribute("class")
         $nextQuestionButton.classList.add("hide")
     }
@@ -158,7 +158,7 @@
 
         if (answerClicked.dataset.correct) {
             totalCorrect++
-        } else {    
+        } else {
         }
 
         document.querySelectorAll(".answer").forEach(button => {
@@ -174,6 +174,26 @@
         $nextQuestionButton.classList.remove("hide")
         currentQuestionIndex++
     }
+
+    async function submitQuiz() {
+    const data = {
+        acertos: totalCorrect
+    };
+
+    const response = await fetch('/api/submitQuiz', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+    });
+
+    if (response.ok) {
+        alert('Obrigado por participar do quiz!');
+    } else {
+        alert('Ocorreu um erro ao enviar os dados. Por favor, tente novamente.');
+    }
+}
 
     function finishGame() {
         const totalQuestions = questions.length
@@ -223,6 +243,8 @@
       Refazer teste
     </button>
   `
+
+        submitQuiz();
     }
 
 
@@ -318,5 +340,6 @@
             ]
         },
     ]
+
 
 </script>
