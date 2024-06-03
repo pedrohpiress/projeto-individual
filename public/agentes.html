@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ptbr">
+
+<head>
+    <!-- API GOOGLE FONTS -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poetsen+One&display=swap"
+        rel="stylesheet">
+
+    <!-- FIM API GOOGLE FONTS -->
+    <link rel="stylesheet" href="./css/agentes.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body onload="validarSessao()">
+
+    <nav class="navbar-inicial">
+        <img src="./assets/logoval.png" alt="">
+        <h1>ValLife</h1>
+        <li class="lista-links">
+            <a class="links-navbar" href="./index.html">Inicio</a>
+            <a class="links-navbar" href="./sobremim.html">Sobre mim</a>
+            <a id="a_link_dash" class="links-navbar" href="./quiz.html">Quiz</a>
+            <a id="a_link_quiz" class="links-navbar" style="display: none;" href="./dashboard.html">Dashboard</a>
+            <a class="links-navbar" href="./armas.html">Armas</a>
+            <a class="links-navbar" href="./agentes.html">Agentes</a>
+            <a class="links-navbar" href="./mapas.html">Mapas</a>
+            <button class="login-navbar" href="./login.html" id="b_usuario"
+                onclick="location.href='./login.html'">Login</button>
+        </li>
+    </nav>
+
+
+    <section class="section-agents">
+        <li class="duelist-list">
+            <ul><button>Reyna</button></ul>
+            <ul><button>Yoru</button></ul>
+            <ul><button>Jett</button></ul>
+            <ul><button>Phoenix</button></ul>
+            <ul><button>Iso</button></ul>
+            <ul><button>Raze</button></ul>
+        </li>
+    </section>
+    
+
+    <footer class="footer-page">
+        <div class="footer-text">
+            <p>ValLife - © Todos os direitos reservados.</p>
+        </div>
+
+        <div class="footer-list">
+            <li class="elements-list-footer-icons">
+                <a class="instagram" href=""><img src="./assets/instagram.png" alt=""></a>
+                <a class="github" href=""><img src="./assets/github.png" alt=""></a>
+                <a class="youtube" href=""><img src="./assets/youtube.png" alt=""></a>
+            </li>
+
+            <p>Pedro H. Pires de Souza</p>
+        </div>
+
+        <div class="footer-list-two">
+            <li class="elements-list-footer">
+                <span>
+                    <a class="links-footer" href="">Inicio</a>
+                    <a class="links-footer" href="">Quiz</a>
+                    <a class="links-footer" href="">Armas</a>
+                    <br>
+                </span>
+            </li>
+            <li class="elements-list-footer-two">
+                <a class="links-footer" href="">Mapas</a>
+                <a class="links-footer" href="">Agentes</a>
+                <a class="links-footer" href="">Login</a>
+            </li>
+
+        </div>
+    </footer>
+
+</body>
+
+</html>
+
+<script src="./js/sessao.js"></script>
+<script src="./js/scriptdashquiz.js"></script>

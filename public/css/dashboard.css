@@ -165,8 +165,16 @@ body {
 }
 
 .dashboard{
-    width: 70%;
+    width: 67%;
     height: 50%;
-    padding-left: 280px;
+    padding-left: 320px;
     padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dashboard p{
+    font-size: 28px;
+    margin-bottom: 30px;
 }

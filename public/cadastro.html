@@ -73,6 +73,10 @@
                 </div>
 
                 <button onclick="cadastrar()" class="button-site">Cadastrar</button>
+                
+                <div class="cardErro" style="display: none;">
+                    <p id="mensagem_erro"></p>
+                </div>
 
                 <div class="change-register">Já tem uma conta? <a href="./login.html">Faça login</a> </div>
             </div>
@@ -87,6 +91,8 @@
 </html>
 
 <script>
+        b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+        var card_erro = document.querySelector('.cardErro')
 
     function cadastrar() {
         aguardar();
@@ -95,15 +101,36 @@
         var emailVar = input_email.value;
         var senhaVar = input_senha.value;
         var confirmacaoSenhaVar = input_confirmar_senha.value;
+
         if (
             nomeVar == "" ||
             emailVar == "" ||
             senhaVar == "" ||
             confirmacaoSenhaVar == ""
         ) {
-            cardErro.style.display = "block";
-            mensagem_erro.innerHTML =
-                "(Mensagem de erro para todos os campos em branco)";
+            card_erro.style.display = 'block';
+            mensagem_erro.innerHTML = "Os campos devem ser preenchidos"
+
+
+            finalizarAguardar();
+            return false;
+        }
+
+        if(
+            confirmacaoSenhaVar != senhaVar
+        ) {
+            card_erro.style.display = 'block';
+            mensagem_erro.innerHTML = "As senhas precisam ser iguais"
+
+            finalizarAguardar();
+            return false;
+        }
+
+        if (
+            emailVar.indexOf('@, .') != 1
+        ) {
+            card_erro.style.display = "block";
+            mensagem_erro.innerHTML = "O email deve conter '@'' e '.' obrigatóriamente";
 
             finalizarAguardar();
             return false;
