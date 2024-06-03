@@ -25,7 +25,7 @@
             <a class="links-navbar" href="./index.html">Inicio</a>
             <a class="links-navbar" href="./sobremim.html">Sobre mim</a>
             <a id="a_link_dash" class="links-navbar" href="./quiz.html">Quiz</a>
-            <a id="a_link_quiz" class="links-navbar" href="./dashboard.html">Dashboard</a>
+            <a id="a_link_quiz" class="links-navbar" style="display: none;" href="./dashboard.html">Dashboard</a>
             <a class="links-navbar" href="./armas.html">Armas</a>
             <a class="links-navbar" href="./agentes.html">Agentes</a>
             <a class="links-navbar" href="./mapas.html">Mapas</a>
@@ -201,19 +201,4 @@
 </html>
 
 <script src="./js/sessao.js"></script>
-<script>
-
-    var quizDash = document.getElementById("a_link_dash")
-    var dashQuiz = document.getElementById("a_link_quiz")
-    dashQuiz.style.display = "none"
-    quizDash.style.display = "none"
-
-    if (email != null && nome != null) {
-        quizDash.style.display = "none"
-        dashQuiz.style.display = "block"
-    } else {
-        quizDash.style.display = "block"
-        dashQuiz.style.display = "none"
-    }
-
-</script>
+<script src="./js/scriptdashquiz.js"></script>

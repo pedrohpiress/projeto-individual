@@ -61,7 +61,7 @@ body {
 
 .lista-links{
     padding-left: 30%;
-    padding-top: 20px;
+    padding-top: 5px;
     width: auto;
     height: auto;
 }
@@ -101,13 +101,14 @@ body {
 }
 
 .box-login{
-    padding: 90px;
+    margin-left: 300px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     width: 400px;
     height: 480px;
     padding-top: 40px;
+    transition: transform 1.5s ease-in-out;
 }
 
 .box-login p{
@@ -131,13 +132,6 @@ body {
     padding-bottom: 60px;
 }
 
-.login-parts h1{
-    margin-top: 30px;
-    padding-left: 20px;
-    width: 240px;
-    height: 5px;
-}
-
 .change-register{
     margin-top: 25px;
     display: flex;
@@ -150,6 +144,7 @@ body {
     text-decoration: none;
     margin-left: 3px;
     transition: 0.4s;
+    cursor: pointer;
 }
 
 .change-register a:hover{
@@ -157,21 +152,22 @@ body {
     transition: 0.4s;
 }
 
-.jett img{
-    width: 330px;
+.reyna img{
+    width: 246px;
     position: relative;
-    left: 410px;
+    right: 70px;
 }
 
-.skye img{
+.omen img{
     padding-top: 45px;
     width: 300px;
     position: relative;
-    right: 80px;
+    right: 160px;
 }
 
 .personagens{
     display: flex;
+    transition: transform 1.7s ease-in-out;
 }
 
 .button-site{
@@ -197,4 +193,19 @@ body {
     transition: 0.4s;
     border: 1px solid #424242;
     color: #000000;
+}
+
+/* .box-login{
+    animation: moveToRight 2s ease-in-out;
+    animation-delay: 1000ms;
+} */
+
+@keyframes moveToRight {
+    0%{
+        transform: translateX(0px);
+    }
+
+    100%{
+        transform: translateX(1100px);
+    }
 }

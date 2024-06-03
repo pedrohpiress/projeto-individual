@@ -25,12 +25,14 @@
         <h1>ValLife</h1>
         <li class="lista-links">
             <a class="links-navbar" href="./index.html">Inicio</a>
-            <a class="links-navbar" href="">Sobre mim</a>
-            <a class="links-navbar" href="">Quiz</a>
-            <a class="links-navbar" href="">Armas</a>
-            <a class="links-navbar" href="">Agentes</a>
-            <a class="links-navbar" href="">Mapas</a>
-            <button class="login-navbar" onclick="location.href='./login.html'">Login</button>
+            <a class="links-navbar" href="./sobremim.html">Sobre mim</a>
+            <a id="a_link_dash" class="links-navbar" href="./quiz.html">Quiz</a>
+            <a id="a_link_quiz" class="links-navbar" style="display: none;" href="./dashboard.html">Dashboard</a>
+            <a class="links-navbar" href="./armas.html">Armas</a>
+            <a class="links-navbar" href="./agentes.html">Agentes</a>
+            <a class="links-navbar" href="./mapas.html">Mapas</a>
+            <button class="login-navbar" href="./login.html" id="b_usuario"
+                onclick="location.href='./login.html'">Login</button>
         </li>
     </nav>
 
@@ -134,7 +136,7 @@ function entrar() {
 
                     setTimeout(function () {
                         console.log('LOGADO')
-                        window.location = "../index.html";
+                        window.location = "../quiz.html";
                     }, 1000); 
 
                 });
@@ -157,3 +159,5 @@ function entrar() {
     }
 
 </script>
+<script src="./js/scriptdashquiz.js"></script>
+<script src="./js/sessao.js"></script>

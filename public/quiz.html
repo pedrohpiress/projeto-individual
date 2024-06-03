@@ -23,29 +23,17 @@
         <h1>ValLife</h1>
         <li class="lista-links">
             <a class="links-navbar" href="./index.html">Inicio</a>
-            <a class="links-navbar" href="">Sobre mim</a>
-            <a class="links-navbar" href="">Quiz</a>
-            <a class="links-navbar" href="">Armas</a>
-            <a class="links-navbar" href="">Agentes</a>
-            <a class="links-navbar" href="">Mapas</a>
-            <button class="login-navbar" onclick="location.href='./login.html'">Login</button>
+            <a class="links-navbar" href="./sobremim.html">Sobre mim</a>
+            <a id="a_link_dash" class="links-navbar" href="./quiz.html">Quiz</a>
+            <a id="a_link_quiz" class="links-navbar" style="display: none;" href="./dashboard.html">Dashboard</a>
+            <a class="links-navbar" href="./armas.html">Armas</a>
+            <a class="links-navbar" href="./agentes.html">Agentes</a>
+            <a class="links-navbar" href="./mapas.html">Mapas</a>
+            <button class="login-navbar" href="./login.html" id="b_usuario"
+                onclick="location.href='./login.html'">Login</button>
         </li>
     </nav>
 
-    <!-- <section class="section-quiz" id="section-quiz">
-
-        <div class="global-quiz">
-            <p>Você realmente conhece o Valorant?</p>
-
-
-            <button onclick="quiz()" class="button-quiz start-quiz">
-                <p>Inicie agora!</p>
-                <div class="change-theme-button"></div>
-            </button>
-
-            <p>Preparamos um Quiz para você testar seu conhecimento sobre o jogo</p>
-        </div>
-    </section> -->
 
     <div class="container">
         <div class="questions-container hide">
@@ -82,6 +70,7 @@
 
 <script>
 
+    var fkUsuario = sessionStorage.ID_USUARIO
     const $startGameButton = document.querySelector(".start-quiz")
     const $nextQuestionButton = document.querySelector(".next-question")
     const $questionsContainer = document.querySelector(".questions-container")
@@ -91,6 +80,7 @@
     const text_begin_one = document.querySelector('.text_begin_one')
     const text_begin_two = document.querySelector('.text_begin_two')
 
+    let totalErros = 0
     let currentQuestionIndex = 0
     let totalCorrect = 0
 
@@ -140,7 +130,10 @@
 
         if (answerClicked.dataset.correct) {
             totalCorrect++
+            window.sessionStorage.setItem('TotalAcertos', totalCorrect);
         } else {
+            totalErros++
+            window.sessionStorage.setItem('TotalErros', totalErros);
         }
 
         document.querySelectorAll(".answer").forEach(button => {
@@ -229,17 +222,18 @@
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                // crie um atributo que recebe o valor recuperado aqui
-                // Agora vá para o arquivo routes/usuario.js
-                totalCorrectServer: totalCorrect
+                totalCorrectServer: totalCorrect,
+                totalErrosServer: totalErros,
+                fkUsuarioServer: fkUsuario
             }),
         })
             .then(function (resposta) {
                 console.log("resposta: ", resposta);
 
                 if (resposta.ok) {
+                    window.location = "./dashboard.html";
                 } else {
-                    throw "Houve um erro ao tentar realizar o cadastro!";
+                    throw "Houve um erro ao enviar as respostas";
                 }
             })
             .catch(function (resposta) {
@@ -248,6 +242,8 @@
             });
 
         return false;
+
+        
     }
 
 
@@ -345,4 +341,7 @@
     ]
 
 
+
 </script>
+<script src="./js/scriptdashquiz.js"></script>
+<script src="./js/sessao.js"></script>

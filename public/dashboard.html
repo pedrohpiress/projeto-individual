@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="shortcut icon" href="../assets/icon/favicon2.ico" type="image/x-icon">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+
+    <link rel="stylesheet" href="./css/dashboard.css">
+    <script src="../js/sessao.js"></script>
+    <script src="./../js/alerta.js"></script>
+
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="https://kit.fontawesome.com/9f7414eb10.js" crossorigin="anonymous"></script>
+</head>
+
+
+<body>
+
+    <nav class="navbar-inicial">
+        <img src="./assets/logoval.png" alt="">
+        <h1>ValLife</h1>
+        <li class="lista-links">
+            <a class="links-navbar" href="./index.html">Inicio</a>
+            <a class="links-navbar" href="./sobremim.html">Sobre mim</a>
+            <a id="a_link_dash" class="links-navbar" href="./quiz.html">Quiz</a>
+            <a id="a_link_quiz" class="links-navbar" style="display: none;" href="./dashboard.html">Dashboard</a>
+            <a class="links-navbar" href="./armas.html">Armas</a>
+            <a class="links-navbar" href="./agentes.html">Agentes</a>
+            <a class="links-navbar" href="./mapas.html">Mapas</a>
+            <button class="login-navbar" href="./login.html" id="b_usuario"
+                onclick="location.href='./login.html'">Login</button>
+        </li>
+    </nav>
+
+    <div class="janela">
+        <div class="container">
+            <div class="titles">
+                <h1>ValLife</h1>
+                <h2>Dashboard</h2>
+            </div>
+            <div class="hello">
+                <h3>Olá, <span id="b_usuario">usuário</span>!</h3>
+            </div>
+            <div class="items-leftbar">
+
+                <a href="./quiz.html">
+                    <h3>Quiz</h3>
+                </a>
+
+                <a href="./index.html" class="btn-logout">
+                    <h3>Sair</h3>
+                </a>
+
+            </div>
+        </div>
+    </div>
+
+            <div class="dashboard">
+                <canvas id="myChart"></canvas>
+              </div>
+
+
+
+</body>
+
+</html>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+
+    obterDadosGrafico();
+
+    function obterDadosGrafico() {
+
+        fetch(`/dashboard/mostrarErrosAcertos`, { cache: 'no-store' }).then(function (response) {
+            console.log(response)
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGrafico(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function plotarGrafico(resposta) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        var valores = [];
+
+
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        // Inserindo valores recebidos em estrutura para plotar o gráfico
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.NomeUsuario);
+            valores.push(registro.TotalAcertos);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(valores)
+        console.log('----------------------------------------------');
+
+        const ctx = document.getElementById('myChart');
+    
+        Chart.defaults.color = '#fff';
+        Chart.defaults.borderColor = 'red';
+
+        new Chart(ctx, {
+            
+            type: 'bar',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Total de acertos',
+                    data: valores,
+                    borderWidth: 1,
+                    backgroundColor: '#777777'
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+</script>
+
+<script src="./js/dashboard.js"></script>
+<script src="./js/scriptdashquiz.js"></script>
+<script src="./js/sessao.js"></script>

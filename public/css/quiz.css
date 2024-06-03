@@ -78,10 +78,10 @@ body {
 }
 
 .lista-links{
-    padding-left: 30%;
-    padding-top: 20px;
-    width: auto;
-    height: auto;
+  padding-left: 30%;
+  padding-top: 5px;
+  width: auto;
+  height: auto;
 }
 
 .login-navbar{

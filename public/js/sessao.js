@@ -11,9 +11,6 @@ function validarSessao() {
     } else {
         b_usuario.innerHTML = "Login";
     }
-
-    
-    
 }
 
 function limparSessao() {
