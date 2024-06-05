@@ -9,6 +9,10 @@ body {
     gap: 0;
 }
 
+*{
+    margin: 0;
+    padding: 0;
+}
 
 .navbar-inicial {
     list-style: none;
@@ -94,20 +98,73 @@ body {
 }
 
 .section-agents{
-    height: 87vh;
-}
-
-.duelist-list{
-    list-style: none;
+    height: 630px;
     display: flex;
-    justify-content: center;
+    width: 100%;
+    background-image: url(../assets/background-agents.png);
+    background-size: 100%;
+    background-repeat: no-repeat;
+    background-position: fixed;
 }
 
-.duelist-list button{
-    width: 80px;
-    height: 75px;
-    border-radius: 100%;
-    border: 1px solid #000000;
+.lateral-bar{
+    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 350px;
+    background-color: #424242;
+}
+
+.lateral-bar-texts h1{
+    font-size: 50px;
+    color: #a91b1b;
+    margin-left: 20px;
+    font-family: 'VALORANT', sans-serif;
+}
+
+.lateral-bar-texts h2{
+    font-family: 'Milligram Macro Trial', sans-serif;
+    letter-spacing: 3px;                                            
+}
+
+.lateral-bar-texts{
+    display: flex;
+    flex-direction: column;
+    margin-left: 60px;
+    margin-top: 50px;
+}
+
+#agente_atual{
+    font-family: 'Poultrygeist', sans-serif;
+    color: #1a1818;
+    margin-left: 130px;
+    align-items: center;
+    margin-top: 300px;
+    font-size: 100px;
+    width: 60px;
+    height: auto;
+    transform: rotate(270deg);
+}
+
+.container-agents{
+    height: 630px;
+    width: 100%;
+    background-color: #a91b1b;
+}
+
+.all-agents{
+    
+}
+
+.box-agent{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 220px;
+    background-color: aqua;
 }
 
 .footer-page{

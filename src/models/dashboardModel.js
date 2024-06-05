@@ -3,7 +3,7 @@ var database = require("../database/config")
 function mostrarErrosAcertos() {
     var instrucao = `SELECT 
     u.nome AS NomeUsuario,
-    q.acertos AS TotalAcertos
+    SUM(q.acertos) AS TotalAcertos
     FROM 
     usuario u
     JOIN 
