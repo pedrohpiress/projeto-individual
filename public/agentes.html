@@ -8,6 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poetsen+One&display=swap"
         rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <!-- FIM API GOOGLE FONTS -->
     <link href="https://fonts.cdnfonts.com/css/cs-rocky" rel="stylesheet">
@@ -22,24 +24,14 @@
 
 <body onload="validarSessao()">
 
-    <!-- <nav class="navbar-inicial">
-        <img src="./assets/logoval.png" alt="">
-        <h1>ValLife</h1>
-        <li class="lista-links">
-            <a class="links-navbar" href="./index.html">Inicio</a>
-            <a class="links-navbar" href="./sobremim.html">Sobre mim</a>
-            <a id="a_link_dash" class="links-navbar" href="./quiz.html">Quiz</a>
-            <a id="a_link_quiz" class="links-navbar" style="display: none;" href="./dashboard.html">Dashboard</a>
-            <a class="links-navbar" href="./armas.html">Armas</a>
-            <a class="links-navbar" href="./agentes.html">Agentes</a>
-            <a class="links-navbar" href="./mapas.html">Mapas</a>
-            <button class="login-navbar" href="./login.html" id="b_usuario"
-                onclick="location.href='./login.html'">Login</button>
-        </li>
-    </nav> -->
-
 
     <section class="section-agents">
+
+        <span onclick="window.location = './index.html'" class="material-symbols-outlined">
+            first_page
+        </span>
+        
+        
 
         <div class="lateral-bar">
             <div class="lateral-bar-texts">
@@ -47,55 +39,137 @@
                 <h1>Agentes</h1>
             </div>
 
-            <select id="agente_atual">
-                <option class="option-agente" value="">Duelista</option>
-                <option class="option-agente" value="">Iniciador</option>
-                <option class="option-agente" value="">Controlador</option>
-                <option class="option-agente" value="">Sentinela</option>
-            </select>
+            <div id="agente_atual">
+                Clique em um agente!
+            </div>
+
+            <div id="sumario_classe">
+                Veja aqui a informação sobre sua classe
+            </div>
 
         </div>
 
         <div class="container-agents">
             <div class="position-agents">
                 <div class="all-agents">
-                    <div class="box-agent">
-                        <img src="./assets/omen.png" alt="">
+                    <div class="box-agent" onclick="duelista()">
+                        <img src="./assets/iso.png" alt="">
                         <p>iso</p>
                     </div>
-                    <div class="box-agent">
-                        <img src="./assets/omen.png" alt="">
+                    <div class="box-agent" onclick="duelista()">
+                        <img src="./assets/neon.png" alt="">
                         <p>neon</p>
                     </div>
-                    <div class="box-agent">
-                        <img src="./assets/omen.png" alt="">
+                    <div class="box-agent" onclick="duelista()">
+                        <img src="./assets/yoru.png" alt="">
                         <p>yoru</p>
                     </div>
-                    <div class="box-agent">
-                        <img src="./assets/omen.png" alt="">
+                    <div class="box-agent" onclick="duelista()">
+                        <img src="./assets/jett-copy.png" alt="">
                         <p>jett</p>
                     </div>
-                    <div class="box-agent">
-                        <img src="./assets/omen.png" alt="">
+
+                </div>
+
+                <div class="all-agents">
+                    <div class="box-agent" onclick="duelista()">
+                        <img src="./assets/raze.png" alt="">
                         <p>raze</p>
+                    </div>
+                    <div class="box-agent" onclick="duelista()">
+                        <img src="./assets/reyna-copy.png" alt="">
+                        <p style="margin-bottom: 22px;">reyna</p>
+                    </div>
+                    <div class="box-agent" onclick="duelista()">
+                        <img src="./assets/phoenix.png" alt="">
+                        <p>phoenix</p>
+                    </div>
+                    <div class="box-agent" onclick="controlador()">
+                        <img src="./assets/omen.png" alt="">
+                        <p>omen</p>
                     </div>
                 </div>
 
-                <div class="all-agents" style="justify-content: center; align-items: center;">
-                    <div class="box-agent">
-                        <img src="./assets/omen.png" alt="">
-                        <p>reyna</p>
+                <div class="all-agents">
+                    <div class="box-agent" onclick="controlador()">
+                        <img src="./assets/brimstone.png" alt="">
+                        <p style="font-size: 25px;">brimstone</p>
                     </div>
-                    <div class="box-agent">
-                        <img src="./assets/omen.png" alt="">
-                        <p>phoenix</p>
+                    <div class="box-agent" onclick="controlador()">
+                        <img src="./assets/viper.png" alt="">
+                        <p>viper</p>
+                    </div>
+                    <div class="box-agent" onclick="controlador()">
+                        <img src="./assets/astra.png" alt="">
+                        <p>astra</p>
+                    </div>
+                    <div class="box-agent" onclick="controlador()">
+                        <img src="./assets/clove.png" alt="">
+                        <p>clove</p>
+                    </div>
+                </div>
+
+                <div class="all-agents">
+                    <div class="box-agent" onclick="controlador()">
+                        <img src="./assets/harbor.png" alt="">
+                        <p>harbor</p>
+                    </div>
+                    <div class="box-agent" onclick="iniciador()">
+                        <img src="./assets/breach.png" alt="">
+                        <p>breach</p>
+                    </div>
+                    <div class="box-agent" onclick="iniciador()">
+                        <img src="./assets/sova.png" alt="">
+                        <p>sova</p>
+                    </div>
+                    <div class="box-agent" onclick="iniciador()">
+                        <img src="./assets/skye-copy.png" alt="">
+                        <p>skye</p>
+                    </div>
+                </div>
+
+                <div class="all-agents">
+                    <div class="box-agent" onclick="iniciador()">
+                        <img src="./assets/kayo.png" alt="">
+                        <p>kay/o</p>
+                    </div>
+                    <div class="box-agent" onclick="iniciador()">
+                        <img src="./assets/fade.png" alt="">
+                        <p>fade</p>
+                    </div>
+                    <div class="box-agent" onclick="iniciador()">
+                        <img src="./assets/gekko.png" alt="">
+                        <p>gekko</p>
+                    </div>
+                    <div class="box-agent" onclick="sentinela()">
+                        <img src="./assets/sage.png" alt="">
+                        <p>sage</p>
+                    </div>
+                </div>
+
+                <div class="all-agents">
+                    <div class="box-agent" onclick="sentinela()">
+                        <img src="./assets/cypher.png" alt="">
+                        <p>cypher</p>
+                    </div>
+                    <div class="box-agent" onclick="sentinela()">
+                        <img src="./assets/killjoy.png" alt="">
+                        <p>killjoy</p>
+                    </div>
+                    <div class="box-agent" onclick="sentinela()">
+                        <img src="./assets/chamber.png" alt="">
+                        <p>chamber</p>
+                    </div>
+                    <div class="box-agent" onclick="sentinela()">
+                        <img src="./assets/deadlock.png" alt="">
+                        <p>deadlock</p>
                     </div>
                 </div>
             </div>
         </div>
 
     </section>
-    
+
 
     <footer class="footer-page">
         <div class="footer-text">
@@ -136,3 +210,50 @@
 
 <script src="./js/sessao.js"></script>
 <script src="./js/scriptdashquiz.js"></script>
+
+<script>
+
+    var caixasAgentes = document.querySelectorAll('.box-agent');
+
+    caixasAgentes.forEach(function (caixa) {
+        caixa.addEventListener('click', atualizarAgenteAtual);
+    });
+
+    function atualizarAgenteAtual(event) {
+        var nomeAgente = event.currentTarget.querySelector('p').textContent.trim();
+        var divAgenteAtual = document.getElementById('agente_atual');
+        divAgenteAtual.textContent = nomeAgente;
+    }
+
+    function duelista() {
+        var nomeAgente = document.getElementById('agente_atual')
+        var sumarioAgente = document.getElementById('sumario_classe')
+        var agentes = document.querySelectorAll('.box-agent')
+
+
+
+        sumarioAgente.innerHTML = 'No Valorant, os "Duelistas" são uma classe de agentes projetados para buscar confrontos diretos e eliminar inimigos. Eles são os principais responsáveis por abrir caminho para a equipe através de habilidades ofensivas e movimentos ágeis. Duelistas são essenciais para assegurar o controle do mapa e criar vantagem numérica em combate.'
+    }
+
+    function controlador() {
+        var nomeAgente = document.getElementById('agente_atual')
+        var sumarioAgente = document.getElementById('sumario_classe')
+
+        sumarioAgente.innerHTML = 'No Valorant, os "Controladores" são uma classe de agentes projetados para manipular o campo de batalha, controlando áreas estratégicas e limitando a visão e o movimento dos inimigos. Eles usam habilidades que bloqueiam linhas de visão, criam áreas de dano ou desorientação, e fornecem suporte tático para sua equipe.'
+    }
+
+    function iniciador() {
+        var nomeAgente = document.getElementById('agente_atual')
+        var sumarioAgente = document.getElementById('sumario_classe')
+
+        sumarioAgente.innerHTML = 'No Valorant, os "Iniciadores" são agentes que criam oportunidades de entrada para a equipe, fornecendo informações sobre inimigos ou desestabilizando as defesas adversárias. Suas habilidades ajudam a abrir caminho e facilitar o avanço da equipe tanto em situações de ataque quanto de defesa.'
+    }
+
+    function sentinela() {
+        var nomeAgente = document.getElementById('agente_atual')
+        var sumarioAgente = document.getElementById('sumario_classe')
+
+        sumarioAgente.innerHTML = 'No Valorant, os "Sentinelas" (Sentinels) são uma classe de agentes especializados em defesa e suporte. Eles são projetados para proteger áreas, bloquear avanços inimigos, e fornecer informações cruciais sobre o movimento adversário. Suas habilidades são focadas em fortalecer posições defensivas e auxiliar os companheiros de equipe.'
+    }
+
+</script>

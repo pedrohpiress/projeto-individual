@@ -1,3 +1,17 @@
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -138,17 +152,25 @@ body {
 
 #agente_atual{
     font-family: 'VALORANT', sans-serif;
-    color: #000000;
+    color: #ffffff;
     margin-left: 50px;
     align-items: center;
+    text-align: center;
     margin-top: 100px;
     font-size: 30px;
     width: 270px;
     height: auto;
-    background-color: #7a7a7a;
-    border-radius: 5px;
-    border: none;
     height: 50px;
+}
+
+#sumario_classe{
+    letter-spacing: 3px;
+    color: #bbbbbb;   
+    font-family: 'Milligram Macro Trial', sans-serif;
+    text-align: center;
+    margin-top: 40px;
+    margin-left: 50px;
+    font-size: 15px;
 }
 
 .option-agente{
@@ -159,7 +181,6 @@ body {
 .container-agents{
     height: 630px;
     width: 100%;
-    /* background-color: #a91b1b; */
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -168,14 +189,30 @@ body {
 
 .all-agents{
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .position-agents{
     border-radius: 5px;
     background-color: #221f1f42;
-    width: 950px;
+    width: 800px;
     height: 500px;
     margin-bottom: 10px;
+    overflow-y: scroll;
+}
+
+.position-agents::-webkit-scrollbar{
+    width: 6px;
+}
+
+.position-agents::-webkit-scrollbar-track{
+    background: rgb(0, 0, 0);
+}
+
+.position-agents::-webkit-scrollbar-thumb{
+    background-color: white;    /* color of the scroll thumb */
+    border-radius: 20px;       /* roundness of the scroll thumb */
 }
 
 .box-agent{
@@ -187,18 +224,30 @@ body {
     height: 220px;
     background-color: rgb(65, 68, 68);
     margin: 10px;
-    border: 2px solid black;
+    border: 1px solid rgb(117, 117, 117);
     transition: 0.5s;
+    overflow: hidden;
+    text-align: center;
 }
 
 .box-agent:hover{
     border: 2px solid red;
+    background: rgb(146,251,255);
+    background: linear-gradient(153deg, rgba(146,251,255,1) 16%, rgba(136,44,44,1) 60%, rgba(0,0,0,1) 90%);
+    background-size: 300% 300%;
+    animation: colors 2s ease-in-out infinite;
+}
+
+.box-agent:hover img{
+    transition: 0.5s;
+    width: 320px;
 }
 
 .box-agent img{
-    margin-top: 20px;
-    width: 160px;
-    
+    margin-top: 30px;
+    width: 283px;
+    transition: 0.5s;
+    cursor: pointer;
 }
 
 .box-agent p{
@@ -208,6 +257,32 @@ body {
     bottom: 70px;
     font-family: 'CS Rocky', sans-serif;
     
+}
+
+.material-symbols-outlined{
+    top: 20px;
+    left: 30px;
+    position: relative;
+    background-color: #2d2c2c;
+    border-radius: 50%;
+    justify-content: center;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    width: 60px;
+    height: 40px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.material-symbols-outlined:hover{
+    background-color: #bbbbbb;
+    color: #000;
+    transition: 0.5s;
+}
+
+.button-back-home{
+    display: none;
 }
 
 .footer-page{
