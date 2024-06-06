@@ -111,177 +111,184 @@ body {
     position: absolute;
 }
 
-.section-agents{
+.box-armas{
+    width: 100%;
     height: 607px;
+    background-color: #424242;
     display: flex;
-    width: 100%;
-    background-image: url(../assets/background-agents.png);
-    background-size: 100%;
-    background-repeat: no-repeat;
-    background-position: fixed;
+    justify-content: center;
+    align-items: center;
 }
 
-.lateral-bar{
-    display: block;
+.position-armas{
     display: flex;
-    flex-direction: column;
+    width: 80%;
+    height: 90%;
+    background-color: rgb(255, 255, 255);
+}
+
+.pistols{
     height: 100%;
-    width: 350px;
-}
-
-.lateral-bar-texts h1{
-    font-size: 50px;
-    color: #a91b1b;
-    margin-left: 20px;
-    font-family: 'VALORANT', sans-serif;
-}
-
-.lateral-bar-texts h2{
-    font-family: 'Milligram Macro Trial', sans-serif;
-    letter-spacing: 3px;
-    color: #D8D2D2;                                         
-}
-
-.lateral-bar-texts{
-    display: flex;
-    flex-direction: column;
-    margin-left: 60px;
-    margin-top: 50px;
-}
-
-#agente_atual{
-    font-family: 'VALORANT', sans-serif;
-    color: #ffffff;
-    margin-left: 50px;
-    align-items: center;
-    text-align: center;
-    margin-top: 100px;
-    font-size: 30px;
-    width: 270px;
-    height: auto;
-    height: 50px;
-}
-
-#sumario_classe{
-    letter-spacing: 3px;
-    color: #bbbbbb;   
-    font-family: 'Milligram Macro Trial', sans-serif;
-    text-align: center;
-    margin-top: 40px;
-    margin-left: 50px;
-    font-size: 15px;
-}
-
-.option-agente{
-    text-align: center;
-    width: 270px;
-}
-
-.container-agents{
-    height: 630px;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
-.all-agents{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.position-agents{
-    border-radius: 5px;
-    background-color: #221f1f42;
-    width: 800px;
-    height: 500px;
-    margin-bottom: 10px;
-    overflow-y: scroll;
-}
-
-.position-agents::-webkit-scrollbar{
-    width: 6px;
-}
-
-.position-agents::-webkit-scrollbar-track{
-    background: rgb(0, 0, 0);
-}
-
-.position-agents::-webkit-scrollbar-thumb{
-    background-color: white;    /* color of the scroll thumb */
-    border-radius: 20px;       /* roundness of the scroll thumb */
-}
-
-.box-agent{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 170px;
-    height: 220px;
-    background-color: rgb(65, 68, 68);
-    margin: 10px;
-    border: 1px solid rgb(117, 117, 117);
-    transition: 0.5s;
+    width: 150px;
     overflow: hidden;
-    text-align: center;
-}
-
-.box-agent:hover{
-    border: 2px solid red;
-    background: rgb(146,251,255);
-    background: linear-gradient(153deg, rgba(146,251,255,1) 16%, rgba(136,44,44,1) 60%, rgba(0,0,0,1) 90%);
-    background-size: 300% 300%;
-    animation: colors 2s ease-in-out infinite;
-}
-
-.box-agent:hover img{
-    transition: 0.5s;
-    width: 320px;
-}
-
-.box-agent img{
-    margin-top: 30px;
-    width: 283px;
-    transition: 0.5s;
-    cursor: pointer;
-}
-
-.box-agent p{
-    position: relative;
-    font-size: 30px;
-    color: #fff;
-    bottom: 70px;
-    font-family: 'CS Rocky', sans-serif;
-    
-}
-
-.material-symbols-outlined{
-    top: 20px;
-    left: 30px;
-    position: relative;
-    background-color: #2d2c2c;
-    border-radius: 50%;
-    justify-content: center;
-    color: #fff;
     display: flex;
+    flex-direction: column;
+}
+
+.box-pistols{
+    justify-content: center;
     align-items: center;
-    width: 60px;
-    height: 40px;
+    margin: 10px;
+    height: 180px;
+    width: 122x;
+    display: flex;
+    flex-direction: column;
+    background-color: #bdbdbd52;
+    border: 2px solid #00000000;
+    transition: 0.5s;
     cursor: pointer;
+}
+
+.box-pistols:hover{
+    border: 2px solid aquamarine;
+    background-color: rgba(127, 255, 212, 0.452);
     transition: 0.5s;
 }
 
-.material-symbols-outlined:hover{
-    background-color: #bbbbbb;
-    color: #000;
+.box-pistols img{
+    width: 120px;
+    transform: rotate(180deg);
+    transform: rotateY(180deg);
+}
+
+.submachine{
+    height: 100%;
+    width: 200px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-submachine{
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    height: 110px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #00000000;
+    background-color: #bdbdbd52;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.box-submachine:hover{
+    border: 2px solid aquamarine;
+    background-color: rgba(127, 255, 212, 0.452);
     transition: 0.5s;
 }
 
-.button-back-home{
-    display: none;
+.box-submachine img{
+    width: 170px;
+    transform: rotate(180deg);
+    transform: rotateY(180deg);
+
+}
+
+.rifles-precisao{
+    height: 100%;
+    width: 200px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-rifles-precisao{
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    height: 65px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #00000000;
+    background-color: #bdbdbd52;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.box-rifles-precisao:hover{
+    border: 2px solid aquamarine;
+    background-color: rgba(127, 255, 212, 0.452);
+    transition: 0.5s;
+}
+
+.box-rifles-precisao img{
+    width: 170px;
+    transform: rotate(180deg);
+    transform: rotateY(180deg);
+}
+
+.rifles{
+    height: 100%;
+    width: 200px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-rifles-pesados{
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    height: 110px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #00000000;
+    background-color: #bdbdbd52;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.box-rifles-pesados img{
+    width: 170px;
+    transform: rotate(180deg);
+    transform: rotateY(180deg);
+}
+
+.box-rifles-pesados:hover{
+    border: 2px solid aquamarine;
+    background-color: rgba(127, 255, 212, 0.452);
+    transition: 0.5s;
+}
+
+.box-rifles{
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    height: 110px;
+    width: 180px;
+    display: flex;
+    flex-direction: column;
+    border: 2px solid #00000000;
+    background-color: #bdbdbd52;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.box-rifles:hover{
+    border: 2px solid aquamarine;
+    background-color: rgba(127, 255, 212, 0.452);
+    transition: 0.5s;
+}
+
+.box-rifles img{
+    width: 170px;
+    transform: rotate(180deg);
+    transform: rotateY(180deg);
+
 }
 
 .footer-page{
