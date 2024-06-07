@@ -114,17 +114,20 @@ body {
 .box-armas{
     width: 100%;
     height: 607px;
-    background-color: #424242;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url(../assets/background-guns-map.png);
+    background-size: 100%;
+    background-attachment: fixed;
 }
 
 .position-armas{
     display: flex;
-    width: 80%;
+    padding-left: 80px;
+    width: 75%;
     height: 90%;
-    background-color: rgb(255, 255, 255);
+    border-radius: 10px;
 }
 
 .pistols{
@@ -144,13 +147,13 @@ body {
     display: flex;
     flex-direction: column;
     background-color: #bdbdbd52;
-    border: 2px solid #00000000;
+    border: 1px solid #00000026;
     transition: 0.5s;
     cursor: pointer;
 }
 
 .box-pistols:hover{
-    border: 2px solid aquamarine;
+    border: 1px solid aquamarine;
     background-color: rgba(127, 255, 212, 0.452);
     transition: 0.5s;
 }
@@ -177,14 +180,14 @@ body {
     width: 180px;
     display: flex;
     flex-direction: column;
-    border: 2px solid #00000000;
+    border: 1px solid #00000026;
     background-color: #bdbdbd52;
     transition: 0.5s;
     cursor: pointer;
 }
 
 .box-submachine:hover{
-    border: 2px solid aquamarine;
+    border: 1px solid aquamarine;
     background-color: rgba(127, 255, 212, 0.452);
     transition: 0.5s;
 }
@@ -193,7 +196,6 @@ body {
     width: 170px;
     transform: rotate(180deg);
     transform: rotateY(180deg);
-
 }
 
 .rifles-precisao{
@@ -212,14 +214,14 @@ body {
     width: 180px;
     display: flex;
     flex-direction: column;
-    border: 2px solid #00000000;
+    border: 1px solid #00000026;
     background-color: #bdbdbd52;
     transition: 0.5s;
     cursor: pointer;
 }
 
 .box-rifles-precisao:hover{
-    border: 2px solid aquamarine;
+    border: 1px solid aquamarine;
     background-color: rgba(127, 255, 212, 0.452);
     transition: 0.5s;
 }
@@ -246,7 +248,7 @@ body {
     width: 180px;
     display: flex;
     flex-direction: column;
-    border: 2px solid #00000000;
+    border: 1px solid #00000026;
     background-color: #bdbdbd52;
     transition: 0.5s;
     cursor: pointer;
@@ -259,7 +261,7 @@ body {
 }
 
 .box-rifles-pesados:hover{
-    border: 2px solid aquamarine;
+    border: 1px solid aquamarine;
     background-color: rgba(127, 255, 212, 0.452);
     transition: 0.5s;
 }
@@ -272,14 +274,14 @@ body {
     width: 180px;
     display: flex;
     flex-direction: column;
-    border: 2px solid #00000000;
+    border: 1px solid #00000026;
     background-color: #bdbdbd52;
     transition: 0.5s;
     cursor: pointer;
 }
 
 .box-rifles:hover{
-    border: 2px solid aquamarine;
+    border: 1px solid aquamarine;
     background-color: rgba(127, 255, 212, 0.452);
     transition: 0.5s;
 }
@@ -288,7 +290,116 @@ body {
     width: 170px;
     transform: rotate(180deg);
     transform: rotateY(180deg);
+}
 
+.shields{
+    height: 100%;
+    width: 200px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.box-shields{
+    justify-content: center;
+    align-items: center;
+    margin: 10px;
+    height: 243.5px;
+    width: 140px;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid #00000026;
+    background-color: #bdbdbd52;
+    transition: 0.5s;
+    cursor: pointer;
+}
+
+.box-shields img{
+    width: 120px;
+    transform: rotate(180deg);
+    transform: rotateY(180deg);
+}
+
+.box-shields:hover{
+    border: 1px solid aquamarine;
+    background-color: rgba(127, 255, 212, 0.452);
+    transition: 0.5s;
+}
+
+.section-show-guns{
+    height: 607px;
+    width: 100%;
+    background-color: #171717;
+}
+
+video{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.container-show-guns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    margin-left: 75px;
+    margin-top: 50px;
+    height: 80%;
+}
+
+.show-guns-text{
+    width: 30%;
+    margin-right: 170px;
+    align-items: center;
+    justify-content: center;
+}
+
+.show-guns-text h1{
+    text-align: center;
+    font-family: 'VALORANT', sans-serif;
+    color: #b81c1c;
+    font-size: 40px;
+}
+
+.show-guns-text h2{
+    text-align: center;
+    font-size: 25px;
+    margin-top: 50px;
+    font-family: 'Milligram Macro Trial', sans-serif;
+    letter-spacing: 3px;
+    color: #e5e5e5;
+}
+
+.show-guns{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+    height: 340px;
+    background-color: #b8b8b8;
+    border-radius: 10px;
+}
+
+.material-symbols-outlined{
+    top: 20px;
+    left: 650px;
+    position: relative;
+    background-color: #2d2c2c;
+    border-radius: 50%;
+    justify-content: center;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.material-symbols-outlined:hover{
+    background-color: #bbbbbb;
+    color: #000;
+    transition: 0.5s;
 }
 
 .footer-page{

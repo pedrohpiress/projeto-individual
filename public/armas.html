@@ -28,68 +28,110 @@
         <div class="position-armas">
             <div class="pistols">
                 <div class="box-pistols">
+                    <p style="display: none;">classic</p>
                     <img src="./assets/classic.png" alt="">
                 </div>
                 <div class="box-pistols">
+                    <p style="display: none;">shorty</p>
                     <img src="./assets/shorty.png" alt="">
                 </div>
                 <div class="box-pistols">
+                    <p style="display: none;">frenzy</p>
                     <img src="./assets/frenzy.png" alt="">
                 </div>
                 <div class="box-pistols">
+                    <p style="display: none;">ghost</p>
                     <img src="./assets/ghost.png" alt="">
                 </div>
                 <div class="box-pistols">
+                    <p style="display: none;">sheriff</p>
                     <img src="./assets/sheriff.png" alt="">
                 </div>
             </div>
 
             <div class="submachine">
                 <div class="box-submachine">
+                    <p style="display: none;">stinger</p>
                     <img src="./assets/stinger.png" alt="">
                 </div>
                 <div class="box-submachine">
+                    <p style="display: none;">spectre</p>
                     <img src="./assets/spectre.png" alt="">
                 </div>
                 <div class="box-submachine">
+                    <p style="display: none;">bucky</p>
                     <img src="./assets/bucky.png" alt="">
                 </div>
                 <div class="box-submachine">
+                    <p style="display: none;">judge</p>
                     <img src="./assets/judge.png" alt="">
                 </div>
             </div>
 
             <div class="rifles">
                 <div class="box-rifles">
+                    <p style="display: none;">bulldog</p>
                     <img src="./assets/bulldog.png" alt="">
                 </div>
                 <div class="box-rifles">
+                    <p style="display: none;">guardian</p>
                     <img src="./assets/guardian.png" alt="">
                 </div>
                 <div class="box-rifles">
+                    <p style="display: none;">phantom</p>
                     <img src="./assets/phantom.png" alt="">
                 </div>
                 <div class="box-rifles">
+                    <p style="display: none;">vandal</p>
                     <img src="./assets/vandal-arsenal.png" alt="">
                 </div>
             </div>
 
             <div class="rifles-precisao">
                 <div class="box-rifles-precisao">
+                    <p style="display: none;">marshal</p>
                     <img src="./assets/marshal.png" alt="">
                 </div>
                 <div class="box-rifles-precisao">
+                    <p style="display: none;">outlaw</p>
                     <img src="./assets/outlaw.png" alt="">
                 </div>
                 <div class="box-rifles-precisao">
+                    <p style="display: none;">operator</p>
                     <img src="./assets/operator.png" alt="">
                 </div>
                 <div class="box-rifles-pesados">
+                    <p style="display: none;">ares</p>
                     <img src="./assets/ares.png" alt="">
                 </div>
                 <div class="box-rifles-pesados">
+                    <p style="display: none;">odin</p>
                     <img src="./assets/odin.png" alt="">
                 </div>
+            </div>
+
+            <div class="shields">
+                <div class="box-shields">
+                    <img src="./assets/light-shield.png" onclick="light_shield()" alt="">
+                </div>
+                <div class="box-shields">
+                    <img src="./assets/heavy-shield.png" onclick="light_shield()" alt="">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section-show-guns">
+        <span onclick="voltarTopo()" class="material-symbols-outlined">
+            keyboard_double_arrow_up
+            </span>
+        <div class="container-show-guns">
+            <div class="show-guns-text">
+                <h1 id="main-gun">Arsenal</h1>
+                <h2 id="summary-gun">Veja aqui um pouco mais sobre o arsenal de armas do Valorant!</h2>
+            </div>
+            <div class="show-guns">
+                <video src="./assets/inspect-faca.mp4" autoplay muted loop></video>
             </div>
         </div>
     </section>
@@ -134,3 +176,59 @@
 
 <script src="./js/sessao.js"></script>
 <script src="./js/scriptdashquiz.js"></script>
+
+
+<script>
+
+    function voltarTopo() {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    var boxArmas = document.querySelectorAll('.box-pistols, .box-submachine, .box-rifles, .box-rifles-precisao, .box-rifles-pesados');
+
+    boxArmas.forEach(function (box) {
+        box.addEventListener('click', atualizarArmaAtual);
+    });
+
+    function atualizarArmaAtual(event) {
+        var nomeArma = event.currentTarget.querySelector('p').textContent.trim();
+        var h1MainGun = document.getElementById('main-gun');
+        var h2SummaryGun = document.getElementById('summary-gun');
+        var showGuns = document.querySelector('.show-guns');
+
+        h1MainGun.textContent = nomeArma;
+        h2SummaryGun.textContent = obterResumoArma(nomeArma);
+
+
+        showGuns.innerHTML = `<video src="./assets/inspect-${nomeArma}.mp4" autoplay muted loop></video>`;
+
+        document.querySelector('.section-show-guns').scrollIntoView({ behavior: 'smooth' });
+    }
+
+    function obterResumoArma(nomeArma) {
+        var resumos = {
+            classic: 'A Classic é a pistola padrão dos agentes, com disparo alternativo de rajada.',
+            shorty: 'A Shorty é uma pistola de cano duplo, ideal para combates próximos.',
+            frenzy: 'A Frenzy é uma pistola automática, boa para confrontos rápidos.',
+            ghost: 'A Ghost é uma pistola silenciada com alta precisão e dano.',
+            sheriff: 'A Sheriff é uma pistola de alto calibre, com grande poder de fogo.',
+            stinger: 'A Stinger é uma submetralhadora de alta cadência de tiro.',
+            spectre: 'A Spectre é uma submetralhadora silenciada, versátil e precisa.',
+            bucky: 'A Bucky é uma espingarda com tiro alternativo para maior alcance.',
+            judge: 'A Judge é uma espingarda automática com alta cadência de tiro.',
+            bulldog: 'A Bulldog é um rifle automático com modo de rajada alternativo.',
+            guardian: 'A Guardian é um rifle semiautomático com alto dano por disparo.',
+            phantom: 'A Phantom é um rifle automático silenciado com baixa dispersão.',
+            vandal: 'A Vandal é um rifle automático com alto dano por disparo.',
+            marshal: 'A Marshal é um rifle de precisão leve com alta mobilidade.',
+            outlaw: 'A Outlaw é um rifle de precisão com alto poder de fogo.',
+            operator: 'A Operator é um rifle de precisão pesado, letal em um tiro.',
+            ares: 'A Ares é uma metralhadora leve com alta cadência de tiro.',
+            odin: 'A Odin é uma metralhadora pesada com alto poder de fogo e cadência.'
+        };
+
+        return resumos[nomeArma] || 'Resumo não disponível para esta arma.';
+    }
+
+
+</script>
