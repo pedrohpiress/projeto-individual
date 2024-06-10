@@ -80,7 +80,7 @@
 </html>
 
 <script>
-b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+b_usuario.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO}`;
 
 var box = document.querySelector('.box-login');
 var botaoAnimar = document.querySelector('.change');
@@ -144,7 +144,7 @@ function entrar() {
 
             } else {
 
-                console.log("Houve um erro ao tentar realizar o login!");
+                alert("Houve um erro ao tentar realizar o login!");
 
                 resposta.text().then(texto => {
                     console.error(texto);

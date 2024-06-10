@@ -69,7 +69,7 @@
 </html>
 
 <script>
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_usuario.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO}`;
     var fkUsuario = sessionStorage.ID_USUARIO
     const $startGameButton = document.querySelector(".start-quiz")
     const $nextQuestionButton = document.querySelector(".next-question")
@@ -233,8 +233,14 @@
                 if (resposta.ok) {
                     window.location = "./dashboard.html";
                 } else {
+                    if (sessionStorage.NOME_USUARIO){
+                    } else {
+                        alert('Você precisa estar logado para enviar as respostas')
+                    }
                     throw "Houve um erro ao enviar as respostas";
                 }
+
+                
             })
             .catch(function (resposta) {
                 console.log(`#ERRO: ${resposta}`);

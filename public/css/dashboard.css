@@ -165,16 +165,57 @@ body {
 }
 
 .dashboard{
-    width: 67%;
+    width: 40%;
     height: 50%;
-    padding-left: 320px;
-    padding-top: 30px;
+    padding-left: 250px;
+    margin-top: 50px;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
 }
 
-.dashboard p{
+.dashboard-media{
+    width: 25%;
+    height: 50%;
+    padding-left: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.dashboard-media p{
     font-size: 28px;
-    margin-bottom: 30px;
+    margin-top: 10px;
+}
+
+.p_usuarios{
+    font-size: 24px;
+    margin-left: 500px;
+    margin-top: 20px;
+    margin-bottom: 15px;
+    margin-top: 40px;
+}
+
+
+.plot-dashboards{
+    display: flex;
+}
+
+.kpi{
+    width: 150px;
+    background-color: #fff;
+    height: 200px;
+    margin-left: 15px;
+    margin-top: 80px;
+    border-radius: 15px;
+}
+
+.kpi p{
+    color: #000;
+}
+
+.divs-kpi{
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 60px;
 }

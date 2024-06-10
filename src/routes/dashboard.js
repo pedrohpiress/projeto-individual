@@ -8,4 +8,8 @@ router.get("/mostrarErrosAcertos", function (req, res) {
     dashController.mostrarErrosAcertos(req, res);
 });
 
+router.get("/exibirMedia", function (req, res) {
+    dashController.exibirMedia(req, res);
+});
+
 module.exports = router;

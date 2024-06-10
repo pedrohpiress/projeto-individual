@@ -82,6 +82,8 @@ body {
   padding-top: 5px;
   width: auto;
   height: auto;
+  display: flex;
+  align-items: center;
 }
 
 .login-navbar{

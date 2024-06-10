@@ -1,0 +1,250 @@
+@keyframes colors {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    font-weight: 500;
+    background-color: #D8D2D2;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.navbar-inicial {
+    list-style: none;
+    width: 100%;            
+    background-color: #D8D2D2;
+    height: 80px;
+    display: flex;
+}
+
+.navbar-inicial img{
+    margin-left: 10px;
+    width: 80px;
+}
+
+.navbar-inicial h1{
+    width: auto;
+    height: auto;
+}
+
+
+.links-navbar {
+    text-decoration: none;
+    color: black;
+    margin-left: 50px;
+    position: relative;
+}
+
+.links-navbar:before{
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    top: 18px;
+    background-color: #000000;
+    visibility: hidden;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transition: all 0.3s ease-in-out 0s;
+    transition: all 0.3s ease-in-out 0s;
+}
+
+.links-navbar:hover:before{
+    visibility: visible;
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.lista-links{
+    padding-left: 30%;
+    padding-top: 5px;
+    width: auto;
+    height: auto;
+    display: flex;
+    align-items: center;
+}
+
+.login-navbar{
+    width: 80px;
+    height: 40px;
+    background-color: black;
+    border-radius: 8px;
+    border: 1px solid #424242;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.4s;
+    margin-left: 55px;
+}
+
+.lista-links button:hover{
+    background-color: rgb(255, 255, 255);
+    transition: 0.4s;
+    border: 1px solid #424242;
+    color: #000000;
+}
+
+.navbar-inicial h1{
+    width: auto;
+    margin-top: 25px;
+    margin-left: 100px;
+    position: absolute;
+}
+
+
+.sobre-mim{
+    height: 1200px;
+    width: 100%;
+    background-color: #000000e3;
+}
+
+.first-part{
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.first-part-texts{
+    width: 35%;
+    margin-right: 50px;
+}
+
+.first-part-texts h1{
+    margin-bottom: 20px;
+}
+
+.first-part img{
+    height: 400px;
+    margin-top: 40px;
+}
+
+video{
+    width: 400px;
+    border: 2px solid #fff;
+    margin: 2px;
+}
+
+.second-part{
+    margin-top: 120px;
+    color: #D8D2D2;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-right: 45px;
+}
+
+.second-part-videos{
+    margin-top: 20px;
+    margin-left: 32px;
+    margin-bottom: 20px;
+}
+
+.material-symbols-outlined{
+    top: 110px;
+    left: 60px;
+    position: relative;
+    background-color: #2d2c2c;
+    border-radius: 50%;
+    justify-content: center;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    width: 60px;
+    height: 60px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.material-symbols-outlined:hover{
+    background-color: #bbbbbb;
+    color: #000;
+    transition: 0.5s;
+}
+
+.footer-page{
+    text-decoration: none;
+    display: flex;
+    height: 170px;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    background-color: #ffffff;
+    gap: 200px;
+}
+
+.footer-page p,a{
+    color: #000;
+}
+
+.footer-list{
+    padding: 30px;
+}
+
+.footer-list-two a{
+    align-items: center;
+}   
+
+.elements-list-footer span{
+    padding-left: 15px;
+}
+
+.elements-list-footer a{
+    padding-left: 15px;
+}
+
+.elements-list-footer-two{
+    padding-top: 10px;
+}
+
+.elements-list-footer-two a{
+    padding-left: 15px;
+}
+
+.elements-list-footer-icons{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-right: 22px;
+}
+
+.elements-list-footer-icons a{
+    padding-left: 20px;
+}
+
+.youtube img{
+    height: 30px;
+}
+
+.instagram img{
+    height: 25px;
+}
+
+.github img{
+    height: 25px;
+}
+
+.links-footer{
+    text-decoration: none;
+}

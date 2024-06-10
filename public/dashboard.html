@@ -65,10 +65,33 @@
         </div>
     </div>
 
-            <div class="dashboard">
-                <p>Veja os usuários que mais acertaram!</p>
-                <canvas id="myChart"></canvas>
-              </div>
+    <p class="p_usuarios">Veja os usuários que mais acertaram!</p>
+
+    <div class="plot-dashboards">
+        <div class="dashboard">
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div class="dashboard-media">
+            <canvas id="myChart2"></canvas>
+        </div>
+
+        <div class="kpi">
+            <div class="position-kpis">
+                <div class="divs-kpi">
+                    <p>Média de acertos</p>
+                    <div id="user_media"></div>
+                    <p style="margin-top: 8px;">/10</p>
+
+                </div>
+
+                <div class="divs-kpi">
+                    <p>Usuário que mais acertou</p>
+                    <div id="user-more"></div>
+                </div>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -79,11 +102,15 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 <script>
-    b_usuario.innerHTML = sessionStorage.NOME_USUARIO;
+    b_usuario.innerHTML = `Olá, ${sessionStorage.NOME_USUARIO}`;
     b_usuario_dash.innerHTML = sessionStorage.NOME_USUARIO;
 
     obterDadosGrafico();
+    obterDadosGraficoMedia();
     plotarGrafico()
+    plotarGraficoMedia()
+    exibirMedia()
+    
 
     function obterDadosGrafico() {
 
@@ -106,6 +133,80 @@
             });
     }
 
+    // function mediaAcertos(resposta) {
+
+    //     var labels = []
+
+    //     const dadosKpi = {
+    //         mediaAcertos: []
+    //     }
+
+    //     for (i = 0; i < resposta.length; i++) {
+    //         var registro = resposta[i];
+    //         labels.push(registro.mediaAcertos);
+    //     }
+
+    //     console.log('ESTOU NO MEDIA ACERTOS')
+    //     user_media.innerHTML += dadosKpi.mediaAcertos
+    // }
+
+    function exibirMediaAcertos() {
+        fetch("/dashboard/exibirMedia", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO exibirMedia()!")
+
+            if (resposta.ok) {
+
+                resposta.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`)
+                    mediaAcertos(resposta)
+                    console.log('aaaaaaaaaaaaaaaaaaaaaaaaaaaaaa')
+                    user_media.innerHTML = mediaAcertos
+                })
+
+            } else {
+
+                console.log("Houve um erro ao tentar exibir a média de acertos!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizarAguardar(texto);
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+        return false;
+    }
+
+    function obterDadosGraficoMedia() {
+
+        fetch(`/dashboard/mostrarErrosAcertos`, { cache: 'no-store' }).then(function (response) {
+            console.log(response)
+            if (response.ok) {
+                response.json().then(function (resposta) {
+                    console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+                    resposta.reverse();
+
+                    plotarGraficoMedia(resposta);
+
+                });
+            } else {
+                console.error('Nenhum dado encontrado ou erro na API');
+            }
+        })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados p/ gráfico: ${error.message}`);
+            });
+    }
+
+
     function plotarGrafico(resposta) {
 
         console.log('iniciando plotagem do gráfico...');
@@ -122,7 +223,6 @@
         console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
         console.log(resposta)
 
-        // Inserindo valores recebidos em estrutura para plotar o gráfico
         for (i = 0; i < resposta.length; i++) {
             var registro = resposta[i];
             labels.push(registro.NomeUsuario);
@@ -138,12 +238,12 @@
         console.log('----------------------------------------------');
 
         const ctx = document.getElementById('myChart');
-    
+
         Chart.defaults.color = '#fff';
         Chart.defaults.borderColor = 'red';
 
         new Chart(ctx, {
-            
+
             type: 'bar',
             data: {
                 labels: labels,
@@ -151,7 +251,64 @@
                     label: 'Total de acertos',
                     data: valores,
                     borderWidth: 1,
-                    backgroundColor: '#777777'
+                    backgroundColor: ['#777777', '#DD1313', '#fff']
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+    }
+
+    function plotarGraficoMedia(resposta) {
+
+        console.log('iniciando plotagem do gráfico...');
+
+        // Criando estrutura para plotar gráfico - labels
+        let labels = [];
+
+        // Criando estrutura para plotar gráfico - dados
+        var valores = [];
+
+
+
+        console.log('----------------------------------------------')
+        console.log('Estes dados foram recebidos pela funcao "obterDadosGrafico" e passados para "plotarGrafico":')
+        console.log(resposta)
+
+        for (i = 0; i < resposta.length; i++) {
+            var registro = resposta[i];
+            labels.push(registro.NomeUsuario);
+            valores.push(registro.TotalAcertos);
+        }
+
+        console.log('----------------------------------------------')
+        console.log('O gráfico será plotado com os respectivos valores:')
+        console.log('Labels:')
+        console.log(labels)
+        console.log('Dados:')
+        console.log(valores)
+        console.log('----------------------------------------------');
+
+        const ctx2 = document.getElementById('myChart2');
+
+        Chart.defaults.color = '#fff';
+        Chart.defaults.borderColor = 'red';
+
+        new Chart(ctx2, {
+
+            type: 'pie',
+            data: {
+                labels: labels,
+                datasets: [{
+                    label: 'Total de acertos',
+                    data: valores,
+                    borderWidth: 1,
+                    backgroundColor: ['#777777', '#DD1313', '#fff']
                 }]
             },
             options: {

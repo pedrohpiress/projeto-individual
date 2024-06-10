@@ -1,13 +1,5 @@
 var quizModel = require("../models/quizModel");
 
-function listar(req, res) {
-    quizModel.listar().then(function(resultado){
-        res.status(200).json(resultado);
-    }).catch(function(erro){
-        res.status(500).json(erro.sqlMessage);
-    })
-}
-
 function cadastrar(req, res) {
     var totalCorrect = req.body.totalCorrectServer;
     var totalErros = req.body.totalErrosServer;
@@ -25,6 +17,5 @@ function cadastrar(req, res) {
 }
 
 module.exports = {
-    listar,
     cadastrar
 }

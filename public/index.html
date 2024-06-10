@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Poetsen+One&display=swap"
         rel="stylesheet">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
 
     <!-- FIM API GOOGLE FONTS -->
     <link rel="stylesheet" href="./css/style.css">
@@ -93,24 +94,81 @@
         <div class="second-section-why">
             <div class="agents-and-guns">
                 <p> <img src="./assets/map.png" alt=""> Mapas</p>
-                <div class="text-why">O Valorant contém atualmente 9 mapas que são escolhidos aleatóriamente a cada
+                <div class="text-why">O Valorant contém atualmente 10 mapas que são escolhidos aleatóriamente a cada
                     partida</div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="section-onu">
+
+        <h1 class="h1-pilares">Pilares ONU</h1>
+        <div class="onu">
+            <div class="pilar8">
+                <h1>Pilar 8</h1>
+                <img src="./assets/pilar-8.png" alt="">
+                <p>Promover o crescimento econômico sustentado, gerando empregos tanto na área de streaming quanto na área de jogadores profissionais</p>
+            </div>
+            <div>
+                <h1>Pilar 10</h1>
+                <img src="./assets/pilar-10.png" alt="">
+                <p>Reduzir a desigualdade, o jogo coloca pessoas de diversas etnias, genêro, e raça para jogar juntos, possibilitanto uma diversidade maior de culturas gerando menos preconceito</p>
             </div>
         </div>
 
     </section>
 
+
     <div class="section-japan">
         <img src="./assets/banner-japan.png" alt="" width="100%">
-        <button class="button-japan">Confira</button>
+        <button class="button-japan" onclick="modal()">Confira</button>
     </div>
-    </section>
+
+
+    <div class="modal" id="main_modal" style="display: none;">
+        <span onclick="modal_exit()" class="material-symbols-outlined">
+            close
+            </span>
+        <div class="requirements-container">
+            <div class="requirements-modal">
+                <div class="min-requirements">
+                    <h1>Configurações mínimas - 30 FPS</h1>
+                    <div class="configs">
+                        <p>Intel Core 2 Duo E8400 (Intel)</p>
+                        <p>Athlon 200GE (AMD)</p>
+                        <p>Intel HD 4000, Radeon R5 200</p>
+                    </div>
+                </div>
+            </div>
+            <div class="requirements-modal">
+                <div class="recommended-requirements">
+                    <h1>Configurações recomendadas - 60 FPS</h1>
+                    <div class="configs-recommended">
+                        <p>Intel i3-4150 (Intel)</p>
+                        <p>Ryzen 3 1200 (AMD)</p>
+                        <p>Geforce GT 730, Radeon R7 240</p>
+                    </div>
+                </div>
+            </div>
+            <div class="requirements-modal">
+                <div class="high-requirements">
+                    <h1>Configurações altas - 144+ FPS</h1>
+                    <div class="configs">
+                        <p>Intel i5-9400F (Intel)</p>
+                        <p>Ryzen 5 2600X (AMD)</p>
+                        <p>Geforce GTX 1050 Ti, Radeon R7 370</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section class="section-black">
         <div class="section-black-divs">
             <h1>Você realmente conhece o Valorant?</h1>
             <div class="section-black-divs-text">Teste seu conhecimento sobre o jogo com o quiz abaixo</div>
-            <button class="button-site">Entre</button>
+            <button onclick="location.href='./quiz.html'" class="button-site">Entre</button>
         </div>
 
         <div>
@@ -126,7 +184,7 @@
         <div class="section-two-black-divs">
             <h1>Faça login em nosso site</h1>
             <div class="section-two-black-divs-text">Tenha uma conta para armazenar seus acertos com o quiz!</div>
-            <button class="button-site">Entre</button>
+            <button onclick="location.href='./login.html'" class="button-site">Entre</button>
         </div>
     </section>
 
@@ -134,7 +192,7 @@
         <div class="section-agents-texts">
             <h1>Agentes</h1>
             <p>Conheça sobre os agentes do Valorant</p>
-            <button class="button-site">Agentes</button>
+            <button onclick="location.href='./agentes.html'" class="button-site">Agentes</button>
         </div>
 
         <div>
@@ -143,23 +201,21 @@
     </section>
 
     <section class="section-guns">
-        <div>
-            <img src="./assets/skins.png" alt="">
-        </div>
 
         <div class="section-guns-texts">
             <h1>Equipamentos</h1>
             <p>Conheça sobre os armas
                 e equipamentos</p>
-            <button class="button-site">Confira</button>
+            <button onclick="location.href='./armas.html'" class="button-site">Confira</button>
         </div>
+
     </section>
 
     <section class="section-map">
         <div>
             <h1>Mapas</h1>
             <p>Confira os mapas jogáveis dentro do jogo</p>
-            <button class="button-site">Mapas</button>
+            <button onclick="location.href='./mapas.html'" class="button-site">Mapas</button>
         </div>
     </section>
 
@@ -202,3 +258,17 @@
 
 <script src="./js/sessao.js"></script>
 <script src="./js/scriptdashquiz.js"></script>
+
+<script>
+
+    var div_modal = document.querySelector('#main_modal')
+
+    function modal() {
+        div_modal.style.display = "block"
+    }
+
+    function modal_exit() {
+        div_modal.style.display = "none";
+    }
+
+</script>

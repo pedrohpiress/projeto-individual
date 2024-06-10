@@ -1,18 +1,20 @@
 var database = require("../database/config")
 
+function exibirMedia() {
+    var instrucao = `
+    select round(avg(acertos), 0) as mediaAcertos from quiz;
+    `;
+    console.log("Executando a instrução SQL: \n" + instrucao);
+    return database.executar(instrucao);
+}
+
 function mostrarErrosAcertos() {
-    var instrucao = `SELECT 
-    u.nome AS NomeUsuario,
-    SUM(q.acertos) AS TotalAcertos
-    FROM 
-    usuario u
-    JOIN 
-    quiz q ON u.id = q.fkUsuario
-    GROUP BY 
-    u.id, u.nome
-    ORDER BY 
-    TotalAcertos DESC
-    LIMIT 3;`
+    var instrucao = `select distinct
+    quiz.acertos as TotalAcertos,
+    usuario.nome as NomeUsuario
+    from usuario
+    inner join quiz on usuario.id = quiz.fkUsuario
+    order by TotalAcertos desc limit 3;`
 
     console.log("Executando a instrução SQL: \n" + instrucao);
 
@@ -20,5 +22,6 @@ function mostrarErrosAcertos() {
 }
 
 module.exports = {
-    mostrarErrosAcertos
+    mostrarErrosAcertos,
+    exibirMedia
 }
