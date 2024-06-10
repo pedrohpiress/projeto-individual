@@ -12,4 +12,8 @@ router.get("/exibirMedia", function (req, res) {
     dashController.exibirMedia(req, res);
 });
 
+router.get("/exibirUsuarioFinal", function (req, res) {
+    dashController.exibirUsuarioFinal(req, res);
+});
+
 module.exports = router;
