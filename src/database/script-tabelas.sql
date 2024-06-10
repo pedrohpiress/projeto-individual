@@ -3,14 +3,14 @@ CREATE DATABASE vallife;
 USE vallife;
 
 CREATE TABLE usuario (
-id INT PRIMARY KEY AUTO_INCREMENT,
-nome VARCHAR(50),
-email VARCHAR(50),
-senha VARCHAR(50)
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome VARCHAR(50),
+	email VARCHAR(50),
+	senha VARCHAR(50)
 );
 
 create table quiz (
-idQuiz int primary key auto_increment,
+	idQuiz int primary key auto_increment,
     acertos int,
     erros int,
     fkUsuario int,
@@ -19,20 +19,16 @@ idQuiz int primary key auto_increment,
 select * from usuario;
 select * from quiz;
 
--- exibir acertos e erros
+select distinct
+    quiz.acertos as TotalAcertos,
+    usuario.nome as NomeUsuario
+    from usuario
+    inner join quiz on usuario.id = quiz.fkUsuario
+    order by TotalAcertos desc limit 3;
 
-SELECT 
-    u.nome AS NomeUsuario,
-    SUM(q.acertos) AS TotalAcertos
-FROM 
-    usuario u
-JOIN 
-    quiz q ON u.id = q.fkUsuario
-GROUP BY 
-    u.id, u.nome
-ORDER BY 
-    TotalAcertos DESC
-LIMIT 3;
+    select round(avg(acertos), 0) as mediaAcertos from quiz;
+    
+
 
 INSERT INTO usuario (nome, email, senha) VALUES
 ('Lucas Almeida', 'lucas.almeida@example.com', 'senha345'),
